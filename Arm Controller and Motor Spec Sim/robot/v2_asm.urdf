@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="v2_asm">
+  <link name="link_s1_v2_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="chud" />
+      </geometry>
+    </collision>
+    </link>
+  <link name="link_s2_v2_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/s2_v2_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_1" type="revolute">
+    <origin xyz="0 0 -0.05" rpy="3.1415927 0 0" />
+    <parent link="link_s1_v2_1" />
+    <child link="link_s2_v2_1" />
+    <limit effort="80" velocity="5" lower="-3.1415927" upper="3.1415927" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="link_upper_arm_v2_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/upper_arm_v2_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_2" type="revolute">
+    <origin xyz="0 0 0.06" rpy="1.5707963 0 1.5707963" />
+    <parent link="link_s2_v2_1" />
+    <child link="link_upper_arm_v2_1" />
+    <limit effort="80" velocity="5" lower="-3.4906585" upper="0.43633231" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_w1_v2_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/w1_v2_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_3" type="revolute">
+    <origin xyz="-0.375 0 0" rpy="3.1415927 0 0" />
+    <parent link="link_upper_arm_v2_1" />
+    <child link="link_w1_v2_1" />
+    <limit effort="80" velocity="5" lower="-1.9198622" upper="1.9198622" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_forearm_v2_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/forearm_v2_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_4" type="revolute">
+    <origin xyz="-0.1 0 0" rpy="0 1.5707963 0" />
+    <parent link="link_w1_v2_1" />
+    <child link="link_forearm_v2_1" />
+    <limit effort="80" velocity="5" lower="-3.1415927" upper="3.1415927" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_wrist_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/wrist_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_5" type="revolute">
+    <origin xyz="0 0 -0.275" rpy="-3.1415927 -1.5707963 0" />
+    <parent link="link_forearm_v2_1" />
+    <child link="link_wrist_1" />
+    <limit effort="80" velocity="5" lower="-3.1415927" upper="3.1415927" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_end_eff_1">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/end_eff_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_6" type="revolute">
+    <origin xyz="-0.02 0 0" rpy="0 -1.5707963 0" />
+    <parent link="link_wrist_1" />
+    <child link="link_end_eff_1" />
+    <limit effort="80" velocity="5" lower="-3.1415927" upper="3.1415927" />
+    <axis xyz="0 0 1" />
+  </joint>
+</robot>

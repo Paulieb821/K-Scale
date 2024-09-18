@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="v2_asm">
+  <compiler angle="radian" meshdir="meshes" />
+  <option timestep="0.001" gravity="0 0 -9.81"></option>
+
+  <asset>
+    <mesh name="s1_v2_1" file="s1_v2_1.stl" />
+    <mesh name="s2_v2_1" file="s2_v2_1.stl" />
+    <mesh name="upper_arm_v2_1" file="upper_arm_v2_1.stl" />
+    <mesh name="w1_v2_1" file="w1_v2_1.stl" />
+    <mesh name="forearm_v2_1" file="forearm_v2_1.stl" />
+    <mesh name="wrist_1" file="wrist_1.stl" />
+    <mesh name="end_eff_1" file="end_eff_1.stl" />
+  </asset>
+
+  <contact>
+      <exclude name="fix1" body1="link_s1_v2_1" body2="link_s2_v2_1"/>
+      <exclude name="fix3" body1="link_forearm_v2_1" body2="link_end_eff_1"/>
+  </contact>
+
+  <worldbody>
+    <site type="cylinder" name="worldX" pos = "0.1 0 0" euler="0 1.570796 0" size="0.015 0.1" rgba="1 0 0 1" />
+    <site type="cylinder" name="worldY" pos = "0 0.1 0" euler="1.570796 0 0" size="0.015 0.1" rgba="0 1 0 1" />
+    <site type="cylinder" name="worldZ" pos = "0 0 0.1" euler="0 0 0" size="0.015 0.1" rgba="0 0 1 1" />
+
+    <body name="link_s1_v2_1" pos="0 0 0" quat="0 1 0 0">
+      <geom type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="s1_v2_1" />
+      <body name="link_s2_v2_1" pos="0 0 -0.05" quat="0 1 0 0">
+        <joint name="joint_revolute_1" pos="0 0 0" axis="0 0 -1" range="-3.14159 3.14159" actuatorfrcrange="-80 80" />
+        <geom type="mesh" rgba="0.647059 0.647059 0.647059 1" mesh="s2_v2_1" />
+        <body name="link_upper_arm_v2_1" pos="0 0 0.06" quat="0.5 0.5 0.5 0.5">
+          <joint name="joint_revolute_2" pos="0 0 0" axis="0 0 1" range="-3.49066 0.436332" actuatorfrcrange="-80 80" />
+          <geom type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="upper_arm_v2_1" />
+          <body name="link_w1_v2_1" pos="-0.375 0 0" quat="0 1 0 0">
+            <joint name="joint_revolute_3" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-80 80" />
+            <geom type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="w1_v2_1" />
+            <body name="link_forearm_v2_1" pos="-0.1 0 0" quat="0.707107 0 0.707107 0">
+              <joint name="joint_revolute_4" pos="0 0 0" axis="0 0 1" range="-6.28 6.28" actuatorfrcrange="-80 80" />
+              <geom type="mesh" rgba="0.768627 0.886275 0.952941 1" mesh="forearm_v2_1" />
+              <body name="link_wrist_1" pos="0 0 -0.275" quat="0 -0.707107 0 -0.707107">
+                <joint name="joint_revolute_5" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-80 80" />
+                <geom type="mesh" rgba="0.972549 0.529412 0.00392157 1" mesh="wrist_1" />
+                <body name="link_end_eff_1" pos="-0.02 0 0" quat="0.707107 0 -0.707107 0">
+                  <joint name="joint_revolute_6" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-80 80" />
+                  <geom type="mesh" rgba="0.498039 0.498039 0.498039 1" mesh="end_eff_1" />
+                  <site type='sphere' size='.015' name='endeff' pos='0 0 0.04' rgba='1 1 1 1'/>
+                  <site type="cylinder" name="endeffX" pos = "0.05 0 0.04" euler="0 1.570796 0" size="0.0075 0.05" rgba="1 0 0 1" />
+                  <site type="cylinder" name="endeffY" pos = "0 0.05 0.04" euler="1.570796 0 0" size="0.0075 0.05" rgba="0 1 0 1" />
+                  <site type="cylinder" name="endeffZ" pos = "0 0 0.09" euler="0 0 0" size="0.0075 0.05" rgba="0 0 1 1" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
