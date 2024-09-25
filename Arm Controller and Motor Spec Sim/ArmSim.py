@@ -6,8 +6,8 @@ import math
 import numpy as np
 import os
 # My Class Imports
-from TrajectoryPlanner6dof import TrajectoryPlanner6dof as traj
-from Controller6dof import Controller6dof as ctrl
+from TrajectoryPlanner import TrajectoryPlanner6dof as traj
+from Controller import Controller6dof as ctrl
 
 
 ###############
@@ -18,18 +18,18 @@ from Controller6dof import Controller6dof as ctrl
 os.system("cls")
 
 # XML File and Simulation Time
-xml_path = 'robot/v2_asm.xml' #xml file (assumes this is in the same folder as this file)
-simend = 4 #simulation time
+#xml_path = 'robot/v2_asm.xml' #xml file (assumes this is in the same folder as this file)
+xml_path = '141-1x3-none/sim_arm_141-1x3-none.xml' #xml file (assumes this is in the same folder as this file)
+simend = 15 #simulation time
 print_camera_config = 0 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
 
 # Get the full path
 dirname = os.path.dirname(__file__)
 abspath = os.path.join(dirname + "/" + xml_path)
-xml_path = abspath
 
 # MuJoCo data structures
-model = mj.MjModel.from_xml_path(xml_path)  # MuJoCo model
+model = mj.MjModel.from_xml_path(abspath)  # MuJoCo model
 data = mj.MjData(model)                     # MuJoCo data
 cam = mj.MjvCamera()                        # Abstract camera
 opt = mj.MjvOption()                        # visualization options
@@ -40,27 +40,33 @@ opt = mj.MjvOption()                        # visualization options
 #############################
 
 # Declare Controller
-armController = ctrl('robot/v2_asm.xml', "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0, 0, 0], 100, 10, False)
-
-# Mass Stuff - Work in Progress
-extraMass = 5
-model.body_mass[-1] += extraMass
-armController.model.body_mass[-1] += extraMass
+#armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
+armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 10, False)
 
 # Set Trajectory
-trajectory = armController.createTrajectory()
-trajectory.addLinearMove(np.array([0, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
-trajectory.addLinearMove(np.array([0, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
-trajectory.addLinearMove(np.array([0.4, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
-trajectory.addLinearMove(np.array([0.4, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+# 4-DOF Bot Example
+armController.traj.addLinearMove_3dof(np.array([0, 0.2, -0.6]), 2)
+armController.traj.addLinearMove_3dof(np.array([0, 0.2, 0.7]), 2)
+armController.traj.addLinearMove_3dof(np.array([0, 0.7, 0.2]), 2)
+armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
+armController.traj.addLinearMove_3dof(np.array([0.6, 0.3, 0.1]), 2)
+armController.traj.addLinearMove_3dof(np.array([-0.6, 0.3, 0.1]), 2)
+armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
+# 6-DOF Bot Example
+#armController.traj.addLinearMove_6dof(np.array([0, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+#armController.traj.addLinearMove_6dof(np.array([0, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+#armController.traj.addLinearMove_6dof(np.array([0.4, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+#armController.traj.addLinearMove_6dof(np.array([0.4, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
 
 # Motor Specs
 motorSpecs = [{"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},
             {"contT": 40, "contw" : 167, "peakT": 120, "peakw": 200},
             {"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},
-            {"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},
+            {"contT": 18, "contw" : 91, "peakT": 51, "peakw": 105},
             {"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},
             {"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},]
+
+# {"contT": 40, "contw" : 167, "peakT": 120, "peakw": 200}
 
 ####################################
 # Mujoco Controller Implementation #
@@ -73,17 +79,17 @@ def init_controller(model,data):
     
 def controller(model, data): 
         # Control Signal
-        data.qfrc_applied = armController.trajectoryFollower(trajectory, data.qpos, data.time)
+        data.qfrc_applied = armController.trajectoryFollower(data.qpos, data.time)        
 
         # Logging
-        if(data.time <= trajectory.totalTime):
-            trajectory.realTime = np.append(trajectory.realTime, data.time)
-            trajectory.realPos = np.concatenate((trajectory.realPos, [data.qpos]), axis=0)
-            trajectory.estPos = np.concatenate((trajectory.estPos, [armController.xhat]), axis=0)
-            trajectory.realVel = np.concatenate((trajectory.realVel, [data.qvel]), axis=0)
-            trajectory.estVel = np.concatenate((trajectory.estVel, [armController.vhat]), axis=0)
-            trajectory.realAcc = np.concatenate((trajectory.realAcc, [data.qacc]), axis=0)
-            trajectory.realTorque = np.concatenate((trajectory.realTorque, [data.qfrc_applied]), axis=0)
+        if(data.time <= armController.traj.totalTime):
+            armController.traj.realTime = np.append(armController.traj.realTime, data.time)
+            armController.traj.realPos = np.concatenate((armController.traj.realPos, [data.qpos]), axis=0)
+            armController.traj.estPos = np.concatenate((armController.traj.estPos, [armController.xhat]), axis=0)
+            armController.traj.realVel = np.concatenate((armController.traj.realVel, [data.qvel]), axis=0)
+            armController.traj.estVel = np.concatenate((armController.traj.estVel, [armController.vhat]), axis=0)
+            armController.traj.realAcc = np.concatenate((armController.traj.realAcc, [data.qacc]), axis=0)
+            armController.traj.realTorque = np.concatenate((armController.traj.realTorque, [data.qfrc_applied]), axis=0)
 
 #####################   
 # SIMULATION AND UI #
@@ -228,4 +234,4 @@ while not glfw.window_should_close(window):
 
 glfw.terminate()
 
-trajectory.plotJoints()
+armController.traj.plotJoints(motorSpecs=motorSpecs)

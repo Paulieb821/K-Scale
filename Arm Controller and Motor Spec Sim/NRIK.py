@@ -1,4 +1,5 @@
 import mujoco as mj
+import math
 import numpy as np
 from scipy.linalg import logm
 
@@ -13,8 +14,9 @@ class NRIK:
         # Jacobian Setup
         self.jacp = np.zeros((3,self.numJoints))
         self.jacr = np.zeros((3,self.numJoints))
-                 
-    def solveIK(self, endPos, endRot):
+
+    # Inverse Kinematics for Position and Pose
+    def solveIK_6dof(self, endPos, endRot):
         # Set error bounds and iteration limit
         posErrLim = 0.001
         rotErrLim = 0.001
@@ -47,10 +49,42 @@ class NRIK:
             #Compute Error
             rotErr = np.linalg.norm(Vb[:3])
             posErr = np.linalg.norm(Vb[3:])
+            # Increment Counter
+            i += 1
         # Return Conditions
         if i > limit:
             print("Failed to Converge")
-            return 0
+            return self.data.qpos
+        else:
+            return self.data.qpos
+        
+    # Inverse Kinematics for Position Only
+    def solveIK_3dof(self, endPos):
+        # Set error bounds and iteration limit
+        posErrLim = 0.001
+        limit = 100
+        # Initialization
+        q = self.data.qpos
+        i = 0
+        posErr = 100
+        # Algorithm
+        while(posErr > posErrLim and i <= limit):
+            # Get Relative Vector Between Current and End Pose
+            relPos = endPos - self.site.xpos
+            # Get Space Jacobian
+            mj.mj_jacSite(self.model, self.data, self.jacp, self.jacr, self.site.id)
+            # Do Newton Rhapson
+            q = np.add(q, np.matmul(np.linalg.pinv(self.jacp), relPos))
+            self.data.qpos = q
+            mj.mj_forward(self.model, self.data)
+            # Check error
+            posErr = np.linalg.norm(endPos - self.site.xpos)
+            # Increment Counter
+            i += 1
+        # Return Conditions
+        if i > limit:
+            print("Failed to Converge")
+            return self.data.qpos
         else:
             return self.data.qpos
             

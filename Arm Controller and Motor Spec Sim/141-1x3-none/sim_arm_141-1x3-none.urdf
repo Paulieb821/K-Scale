@@ -1,0 +1,602 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="sim_arm_141-1x3-none">
+  <link name="link_rs01_sim_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs01_sim_1.stl" />
+      </geometry>
+      <material name="link_rs01_sim_1_material">
+        <color rgba="0.91764706 0.91764706 0.91764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs01_sim_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <link name="link_main_shoulder_bracket_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/main_shoulder_bracket_1597ccc2460cce77d.stl" />
+      </geometry>
+      <material name="link_main_shoulder_bracket_1_material">
+        <color rgba="0.61568627 0.81176471 0.92941176 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/main_shoulder_bracket_1597ccc2460cce77d.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_j1" type="revolute">
+    <origin xyz="0 0 0.020512915" rpy="0 0 0" />
+    <parent link="link_rs01_sim_1" />
+    <child link="link_main_shoulder_bracket_1" />
+    <limit effort="80" velocity="5" lower="-3.1415927" upper="3.1415927" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="link_dummy_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_1.stl" />
+      </geometry>
+      <material name="link_dummy_1_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_1" type="revolute">
+    <origin xyz="0 0 -0.019987085" rpy="0 0 0" />
+    <parent link="link_rs01_sim_1" />
+    <child link="link_dummy_1" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_rs04_sim_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs04_sim_1.stl" />
+      </geometry>
+      <material name="link_rs04_sim_1_material">
+        <color rgba="0.91764706 0.91764706 0.91764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs04_sim_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_bolt_12" type="fixed">
+    <origin xyz="-0.10375 0 0.074" rpy="-3.1415927 1.5707963 0" />
+    <parent link="link_main_shoulder_bracket_1" />
+    <child link="link_rs04_sim_1" />
+  </joint>
+  <link name="link_dummy_4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_4.stl" />
+      </geometry>
+      <material name="link_dummy_4_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_4.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_2" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_1" />
+    <child link="link_dummy_4" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_m3_to_bearing_bracket_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/m3_to_bearing_bracket_1597ccc2460cce77d.stl" />
+      </geometry>
+      <material name="link_m3_to_bearing_bracket_1_material">
+        <color rgba="0.23137255 0.38039216 0.70588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/m3_to_bearing_bracket_1597ccc2460cce77d.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_j2" type="revolute">
+    <origin xyz="0 0 -0.0395" rpy="0 0 -1.5707963" />
+    <parent link="link_rs04_sim_1" />
+    <child link="link_m3_to_bearing_bracket_1" />
+    <limit effort="80" velocity="5" lower="-3.1415927" upper="3.1415927" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_dummy_3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_3.stl" />
+      </geometry>
+      <material name="link_dummy_3_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_3.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_3" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_4" />
+    <child link="link_dummy_3" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_rs01_sim_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs01_sim_2.stl" />
+      </geometry>
+      <material name="link_rs01_sim_2_material">
+        <color rgba="0.91764706 0.91764706 0.91764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs01_sim_2.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_bolt_23_m" type="fixed">
+    <origin xyz="0 -0.014 -0.06425" rpy="-1.5707963 1.5707963 0" />
+    <parent link="link_m3_to_bearing_bracket_1" />
+    <child link="link_rs01_sim_2" />
+  </joint>
+  <link name="link_dummy_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_2.stl" />
+      </geometry>
+      <material name="link_dummy_2_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_2.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_4" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_3" />
+    <child link="link_dummy_2" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_m2_to_m3_bracket_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/m2_to_m3_bracket_1597ccc2460cce77d.stl" />
+      </geometry>
+      <material name="link_m2_to_m3_bracket_1_material">
+        <color rgba="0.23137255 0.38039216 0.70588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/m2_to_m3_bracket_1597ccc2460cce77d.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_bolt_23_b" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="link_rs01_sim_2" />
+    <child link="link_m2_to_m3_bracket_1" />
+  </joint>
+  <link name="link_shoulder_input_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/shoulder_input_1.stl" />
+      </geometry>
+      <material name="link_shoulder_input_1_material">
+        <color rgba="0.23137255 0.38039216 0.70588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/shoulder_input_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_j3" type="revolute">
+    <origin xyz="0 0 -0.004" rpy="0 0 0" />
+    <parent link="link_rs01_sim_2" />
+    <child link="link_shoulder_input_1" />
+    <limit effort="80" velocity="5" lower="-3.1415927" upper="3.1415927" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_dummy_6">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_6.stl" />
+      </geometry>
+      <material name="link_dummy_6_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_6.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_5" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_2" />
+    <child link="link_dummy_6" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_main_plate_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/main_plate_1.stl" />
+      </geometry>
+      <material name="link_main_plate_1_material">
+        <color rgba="0.64705882 0.64705882 0.64705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/main_plate_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_elbow_fasten_1" type="fixed">
+    <origin xyz="-0.0165 0 -0.003" rpy="-3.1415927 -1.5707963 0" />
+    <parent link="link_shoulder_input_1" />
+    <child link="link_main_plate_1" />
+  </joint>
+  <link name="link_dummy_5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_5.stl" />
+      </geometry>
+      <material name="link_dummy_5_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_5.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_6" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_6" />
+    <child link="link_dummy_5" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_rs01_sim_3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs01_sim_3.stl" />
+      </geometry>
+      <material name="link_rs01_sim_3_material">
+        <color rgba="0.91764706 0.91764706 0.91764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/rs01_sim_3.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_elbow_fasten_2" type="fixed">
+    <origin xyz="-0.04925 0 0" rpy="0 0 0" />
+    <parent link="link_main_plate_1" />
+    <child link="link_rs01_sim_3" />
+  </joint>
+  <link name="link_motor_side_shell_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/motor_side_shell_1.stl" />
+      </geometry>
+      <material name="link_motor_side_shell_1_material">
+        <color rgba="0.91764706 0.91764706 0.91764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/motor_side_shell_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_elbow_fasten_4" type="fixed">
+    <origin xyz="-0.039625 -0.04925 0" rpy="3.1415927 0 0" />
+    <parent link="link_main_plate_1" />
+    <child link="link_motor_side_shell_1" />
+  </joint>
+  <link name="link_trans_side_shell_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/trans_side_shell_1.stl" />
+      </geometry>
+      <material name="link_trans_side_shell_1_material">
+        <color rgba="0.91764706 0.91764706 0.91764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/trans_side_shell_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_elbow_fasten_5" type="fixed">
+    <origin xyz="-0.039625 -0.04925 -0.00625" rpy="0 0 0" />
+    <parent link="link_main_plate_1" />
+    <child link="link_trans_side_shell_1" />
+  </joint>
+  <link name="link_dummy_8">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_8.stl" />
+      </geometry>
+      <material name="link_dummy_8_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_8.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_7" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_5" />
+    <child link="link_dummy_8" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_secondary_plate_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/secondary_plate_1.stl" />
+      </geometry>
+      <material name="link_secondary_plate_1_material">
+        <color rgba="0.91764706 0.91764706 0.91764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/secondary_plate_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_elbow_fasten_3" type="fixed">
+    <origin xyz="0 0 0.028" rpy="3.1415927 0 0" />
+    <parent link="link_rs01_sim_3" />
+    <child link="link_secondary_plate_1" />
+  </joint>
+  <link name="link_dummy_7">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_7.stl" />
+      </geometry>
+      <material name="link_dummy_7_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_7.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_8" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_8" />
+    <child link="link_dummy_7" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_wrist_output_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/wrist_output_1.stl" />
+      </geometry>
+      <material name="link_wrist_output_1_material">
+        <color rgba="0.23137255 0.38039216 0.70588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/wrist_output_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_j4" type="revolute">
+    <origin xyz="-0.3 0 -0.00075" rpy="3.1415927 0 1.5707963" />
+    <parent link="link_secondary_plate_1" />
+    <child link="link_wrist_output_1" />
+    <limit effort="80" velocity="5" lower="-2.6179939" upper="2.6179939" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_dummy_9">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_9.stl" />
+      </geometry>
+      <material name="link_dummy_9_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_9.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_9" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_7" />
+    <child link="link_dummy_9" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_dummy_tube_wrist_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_tube_wrist_1.stl" />
+      </geometry>
+      <material name="link_dummy_tube_wrist_1_material">
+        <color rgba="0.61568627 0.81176471 0.92941176 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_tube_wrist_1.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_forearm_fasten" type="fixed">
+    <origin xyz="-0.07125 0 -0.01475" rpy="-3.1415927 -1.5707963 0" />
+    <parent link="link_wrist_output_1" />
+    <child link="link_dummy_tube_wrist_1" />
+  </joint>
+  <link name="link_dummy_12">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_12.stl" />
+      </geometry>
+      <material name="link_dummy_12_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_12.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_10" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_9" />
+    <child link="link_dummy_12" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_dummy_11">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_11.stl" />
+      </geometry>
+      <material name="link_dummy_11_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_11.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_11" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_12" />
+    <child link="link_dummy_11" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="link_dummy_10">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_10.stl" />
+      </geometry>
+      <material name="link_dummy_10_material">
+        <color rgba="0.98039216 0.71372549 0.0039215686 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="./meshes/dummy_10.stl" />
+      </geometry>
+    </collision>
+    </link>
+  <joint name="joint_revolute_12" type="revolute">
+    <origin xyz="0 0 -0.025" rpy="0 0 0" />
+    <parent link="link_dummy_11" />
+    <child link="link_dummy_10" />
+    <limit effort="80" velocity="5" lower="0" upper="0.017453293" />
+    <axis xyz="0 0 1" />
+  </joint>
+</robot>

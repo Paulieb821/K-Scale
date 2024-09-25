@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="sim_arm_141-1x3-none">
+  <compiler angle="radian" meshdir="meshes" />
+  <option timestep="0.001" gravity="0 0 -9.81"></option>
+
+  <asset>
+    <mesh name="rs01_sim_1" file="rs01_sim_1.stl" />
+    <mesh name="main_shoulder_bracket_1597ccc2460cce77d" file="main_shoulder_bracket_1597ccc2460cce77d.stl" />
+    <mesh name="rs04_sim_1" file="rs04_sim_1.stl" />
+    <mesh name="m3_to_bearing_bracket_1597ccc2460cce77d" file="m3_to_bearing_bracket_1597ccc2460cce77d.stl" />
+    <mesh name="rs01_sim_2" file="rs01_sim_2.stl" />
+    <mesh name="m2_to_m3_bracket_1597ccc2460cce77d" file="m2_to_m3_bracket_1597ccc2460cce77d.stl" />
+    <mesh name="shoulder_input_1" file="shoulder_input_1.stl" />
+    <mesh name="main_plate_1" file="main_plate_1.stl" />
+    <mesh name="rs01_sim_3" file="rs01_sim_3.stl" />
+    <mesh name="motor_side_shell_1" file="motor_side_shell_1.stl" />
+    <mesh name="trans_side_shell_1" file="trans_side_shell_1.stl" />
+    <mesh name="secondary_plate_1" file="secondary_plate_1.stl" />
+    <mesh name="wrist_output_1" file="wrist_output_1.stl" />
+    <mesh name="dummy_tube_wrist_1" file="dummy_tube_wrist_1.stl" />
+  </asset>
+
+  <contact>
+      <exclude name="fix1" body1="root" body2="body_2"/>
+      <exclude name="fix2" body1="root" body2="body_3"/>
+      <exclude name="fix3" body1="root" body2="body_4"/>
+      <exclude name="fix4" body1="body_1" body2="body_3"/>
+      <exclude name="fix5" body1="body_1" body2="body_4"/>
+      <exclude name="fix6" body1="body_2" body2="body_4"/>
+  </contact>
+
+  <worldbody>
+    <site type="cylinder" name="worldX" pos = "0.1 0 0" euler="0 1.570796 0" size="0.015 0.1" rgba="1 0 0 1" />
+    <site type="cylinder" name="worldY" pos = "0 0.1 0" euler="1.570796 0 0" size="0.015 0.1" rgba="0 1 0 1" />
+    <site type="cylinder" name="worldZ" pos = "0 0 0.1" euler="0 0 0" size="0.015 0.1" rgba="0 0 1 1" />
+
+    <body name="root" pos="0 0 0" quat="1 0 0 0">
+      <geom type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="rs01_sim_1" />
+      <body name="body_1" pos="0 0 0.0205129">
+        <joint name="joint_j1" pos="0 0 0" axis="0 0 -1" range="-3.14159 3.14159" actuatorfrcrange="-80 80" />
+        <geom type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="main_shoulder_bracket_1597ccc2460cce77d" />
+        <geom pos="-0.10375 0 0.074" quat="-1.64085e-08 -0.707107 -1.64085e-08 0.707107" type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="rs04_sim_1" />
+        <body name="body_2" pos="-0.06425 1.8332e-09 0.074" quat="0.5 -0.5 -0.5 0.5">
+          <joint name="joint_j2" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-80 80" />
+          <geom type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="m3_to_bearing_bracket_1597ccc2460cce77d" />
+          <geom pos="0 -0.014 -0.06425" quat="0.5 -0.5 0.5 0.5" type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="rs01_sim_2" />
+          <geom pos="0 -0.014 -0.06425" quat="0.5 -0.5 0.5 0.5" type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="m2_to_m3_bracket_1597ccc2460cce77d" />
+          <body name="body_3" pos="-1.0718e-10 -0.018 -0.06425" quat="0.5 -0.5 0.5 0.5">
+            <joint name="joint_j3" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-80 80" />
+            <geom type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="shoulder_input_1" />
+            <geom pos="-0.0165 0 -0.003" quat="-1.64085e-08 -0.707107 1.64085e-08 -0.707107" type="mesh" rgba="0.647059 0.647059 0.647059 1" mesh="main_plate_1" />
+            <geom pos="-0.0165 0 -0.05225" quat="-1.64085e-08 -0.707107 1.64085e-08 -0.707107" type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="rs01_sim_3" />
+            <geom pos="0.0115 -1.29949e-09 -0.05225" quat="0.707107 0 -0.707107 0" type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="secondary_plate_1" />
+            <geom pos="-0.0165 0.04925 -0.042625" quat="0.707107 0 -0.707107 0" type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="motor_side_shell_1" />
+            <geom pos="-0.02275 0.04925 -0.042625" quat="-1.64085e-08 -0.707107 1.64085e-08 -0.707107" type="mesh" rgba="0.917647 0.917647 0.917647 1" mesh="trans_side_shell_1" />
+            <body name="body_4" pos="0.01225 -1.29949e-09 -0.35225" quat="0.5 0.5 0.5 0.5">
+              <joint name="joint_j4" pos="0 0 0" axis="0 0 1" range="-2.61799 2.61799" actuatorfrcrange="-80 80" />
+              <geom type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="wrist_output_1" />
+              <geom pos="-0.07125 0 -0.01475" quat="-1.64085e-08 -0.707107 1.64085e-08 -0.707107" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="dummy_tube_wrist_1" />
+              <geom type='sphere' size='.001' pos='-0.37125 0 -0.015' rgba='1 1 1 1' mass='4'/>
+              <site type='sphere' size='.015' name='endeff' pos='-0.37125 0 -0.015' rgba='1 1 1 1'/>
+              <site type="cylinder" name="endeffX" pos = "-0.32125 0 -0.015" euler="0 1.570796 0" size="0.0075 0.05" rgba="1 0 0 1" />
+              <site type="cylinder" name="endeffY" pos = "-0.37125 0.05 -0.015" euler="1.570796 0 0" size="0.0075 0.05" rgba="0 1 0 1" />
+              <site type="cylinder" name="endeffZ" pos = "-0.37125 0 0.035" euler="0 0 0" size="0.0075 0.05" rgba="0 0 1 1" />
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
