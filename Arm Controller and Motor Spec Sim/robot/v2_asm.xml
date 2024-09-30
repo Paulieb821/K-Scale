@@ -1,4 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
+
+<!--
+// Initialization //
+armController = ctrl('robot/v2_asm.xml', "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0, 0, 0], 100, 10, False)
+
+// Common Test Movements //
+armController.traj.addLinearMove_6dof(np.array([0, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+armController.traj.addLinearMove_6dof(np.array([0, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+armController.traj.addLinearMove_6dof(np.array([0.4, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+armController.traj.addLinearMove_6dof(np.array([0.4, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
+-->
+
 <mujoco model="v2_asm">
   <compiler angle="radian" meshdir="meshes" />
   <option timestep="0.001" gravity="0 0 -9.81"></option>

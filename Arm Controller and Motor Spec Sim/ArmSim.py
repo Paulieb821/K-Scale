@@ -19,7 +19,7 @@ os.system("cls")
 
 # XML File and Simulation Time
 #xml_path = 'robot/v2_asm.xml' #xml file (assumes this is in the same folder as this file)
-xml_path = '141-1x3-none/sim_arm_141-1x3-none.xml' #xml file (assumes this is in the same folder as this file)
+xml_path = '131-1x3-none/sim_arm_131-1x3-none.xml' #xml file (assumes this is in the same folder as this file)
 simend = 15 #simulation time
 print_camera_config = 0 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
@@ -37,11 +37,12 @@ opt = mj.MjvOption()                        # visualization options
 
 #############################
 # Controller and Trajectory #
-#############################
+#############################kol
 
 # Declare Controller
 #armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
 armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 10, False)
+print(armController.model.body_mass)
 
 # Set Trajectory
 # 4-DOF Bot Example
@@ -60,7 +61,7 @@ armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
 
 # Motor Specs
 motorSpecs = [{"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},
-            {"contT": 40, "contw" : 167, "peakT": 120, "peakw": 200},
+            {"contT": 20, "contw" : 180, "peakT": 60, "peakw": 195},
             {"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},
             {"contT": 18, "contw" : 91, "peakT": 51, "peakw": 105},
             {"contT": 6, "contw" : 275, "peakT": 17, "peakw": 315},
@@ -79,7 +80,7 @@ def init_controller(model,data):
     
 def controller(model, data): 
         # Control Signal
-        data.qfrc_applied = armController.trajectoryFollower(data.qpos, data.time)        
+        data.qfrc_applied = armController.trajectoryFollower(data.qpos, data.time)
 
         # Logging
         if(data.time <= armController.traj.totalTime):
