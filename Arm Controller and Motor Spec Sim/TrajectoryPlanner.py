@@ -206,12 +206,10 @@ class TrajectoryPlanner6dof:
     def plotJoints(self, motorSpecs = None):
         # Setup
         rpm_to_rads = 0.1047
-        fig, axs = self.plt.subplots(5, self.numJoints)
-        power = np.zeros(np.size(self.realTime))
+        fig, axs = self.plt.subplots(6, self.numJoints)
         # Joints
         for joint in range(self.numJoints):
-            power += np.multiply(self.realTorque[:,joint], self.realVel[:, joint])
-            for row in range(4):
+            for row in range(6):
                 ax = axs[row, joint]
                 if row == 0:
                     ax.plot(self.timeArr, self.xref[:,joint])
@@ -223,15 +221,21 @@ class TrajectoryPlanner6dof:
                     ax.plot(self.realTime, self.estVel[:, joint])
                 elif row == 2:
                     ax.plot(self.realTime, self.realTorque[:,joint])
-                else:
+                elif row == 3:
                     ax.plot(abs(self.realVel[:,joint]), abs(self.realTorque[:,joint]))
                     if motorSpecs != None:
                         ax.plot([0, motorSpecs[joint]["contw"]*rpm_to_rads], [motorSpecs[joint]["contT"], motorSpecs[joint]["contT"]], color='g')
                         ax.plot([motorSpecs[joint]["contw"]*rpm_to_rads, motorSpecs[joint]["contw"]*rpm_to_rads], [0, motorSpecs[joint]["contT"]], color='g')
                         ax.plot([0, motorSpecs[joint]["contw"]*rpm_to_rads], [motorSpecs[joint]["peakT"], motorSpecs[joint]["contT"]], color='r')
                         ax.plot([motorSpecs[joint]["peakw"]*rpm_to_rads, motorSpecs[joint]["contw"]*rpm_to_rads], [0, motorSpecs[joint]["contT"]], color='r')
-        ax = axs[4, 0]
-        ax.plot(self.realTime, power)
+                elif row == 4:
+                    power = np.multiply(self.realTorque[:,joint], self.realVel[:, joint])
+                    ax.plot(self.realTime, power, color='b')
+                else:
+                    if motorSpecs != None:
+                        heat = np.square(self.realTorque[:,joint])*0.58
+                        ax.plot(self.realTime, heat, color='r')
+                        print("Average Heat Gen for Joint", joint+1, ": ", round(np.sum(heat)/np.size(self.realTime),2), "W")
         # Plot
         plt.show()
 

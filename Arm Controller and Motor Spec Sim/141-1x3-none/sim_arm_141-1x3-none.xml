@@ -57,7 +57,7 @@
               <joint name="joint_j4" pos="0 0 0" axis="0 0 1" range="-2.61799 2.61799" actuatorfrcrange="-80 80" />
               <geom type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="wrist_output_1" />
               <geom pos="-0.07125 0 -0.01475" quat="-1.64085e-08 -0.707107 1.64085e-08 -0.707107" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="dummy_tube_wrist_1" />
-              <geom type='sphere' size='.001' pos='-0.37125 0 -0.015' rgba='1 1 1 1' mass='4'/>
+              <geom type='sphere' size='.001' pos='-0.37125 0 -0.015' rgba='1 1 1 1' mass='0'/>
               <site type='sphere' size='.015' name='endeff' pos='-0.37125 0 -0.015' rgba='1 1 1 1'/>
               <site type="cylinder" name="endeffX" pos = "-0.32125 0 -0.015" euler="0 1.570796 0" size="0.0075 0.05" rgba="1 0 0 1" />
               <site type="cylinder" name="endeffY" pos = "-0.37125 0.05 -0.015" euler="1.570796 0 0" size="0.0075 0.05" rgba="0 1 0 1" />
