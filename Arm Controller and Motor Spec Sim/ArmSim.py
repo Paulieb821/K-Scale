@@ -43,11 +43,6 @@ opt = mj.MjvOption()                        # visualization options
 #armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
 armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 10, False)
 
-# Set payload mass
-payload = 4
-model.body_mass[-1] = payload
-armController.model.body_mass[-1] = payload
-
 # Set Trajectory
 # 4-DOF Bot Example
 armController.traj.addLinearMove_3dof(np.array([0, 0.2, -0.6]), 2)

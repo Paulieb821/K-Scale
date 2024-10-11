@@ -237,10 +237,12 @@ class TrajectoryPlanner6dof:
                         Kt = motorSpecs[joint]["Kt"]
                         R = motorSpecs[joint]["R"]
                         I = self.realTorque[:,joint]/Kt
+                        # Calculate heat generation
                         heat = np.square(I)*R
                         ax.plot(self.realTime, heat, color='r')
-                        # Ge
-                        print("Average Heat Gen for Joint", joint+1, ": ", round(np.sum(heat)/np.size(self.realTime),2), "W")
+                        # Calculate and plot average heat generation rate
+                        avgHeat = round(np.sum(heat)/np.size(self.realTime),2)
+                        print("Average Heat Gen for Joint", joint+1, ": ", avgHeat, "W")
         # Plot
         plt.show()
 
