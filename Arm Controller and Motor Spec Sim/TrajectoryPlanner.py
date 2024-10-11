@@ -233,8 +233,13 @@ class TrajectoryPlanner6dof:
                     ax.plot(self.realTime, power, color='b')
                 else:
                     if motorSpecs != None:
-                        heat = np.square(self.realTorque[:,joint])*0.58
+                        # Extra motor specs and calculate current
+                        Kt = motorSpecs[joint]["Kt"]
+                        R = motorSpecs[joint]["R"]
+                        I = self.realTorque[:,joint]/Kt
+                        heat = np.square(I)*R
                         ax.plot(self.realTime, heat, color='r')
+                        # Ge
                         print("Average Heat Gen for Joint", joint+1, ": ", round(np.sum(heat)/np.size(self.realTime),2), "W")
         # Plot
         plt.show()
