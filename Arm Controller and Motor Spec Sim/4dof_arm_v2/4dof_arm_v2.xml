@@ -17,7 +17,7 @@
     <mesh name="trans_side_shell_1" file="trans_side_shell_1.stl" />
     <mesh name="secondary_plate_1" file="secondary_plate_1.stl" />
     <mesh name="wrist_output_1" file="wrist_output_1.stl" />
-    <mesh name="dummy_tube_wrist_1" file="dummy_tube_wrist_1.stl" />
+    <mesh name="dummy_tube_wrist_1" file="Longer_Dummy_Wrist_Reversed.stl" />
   </asset>
 
   <contact>
@@ -60,9 +60,9 @@
             <body name="body_4" pos="0.01225 -1.29949e-09 -0.35225" quat="0.5 0.5 0.5 0.5">
               <joint name="joint_j4" pos="0 0 0" axis="0 0 1" range="-2.61799 2.61799" actuatorfrcrange="-80 80" />
               <geom type="mesh" rgba="0.231373 0.380392 0.705882 1" mesh="wrist_output_1" mass="0.073"/>
-              <geom pos="-0.07125 0 -0.01475" quat="-1.64085e-08 -0.707107 1.64085e-08 -0.707107" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="dummy_tube_wrist_1" mass="0.157"/>
-              <geom type='sphere' size='.001' name="payload_mass" pos='-0.37125 0 -0.015' rgba='1 1 1 1' mass='4'/>
-              <site type='sphere' size='.015' name='endeff' pos='-0.37125 0 -0.015' rgba='1 1 1 1'/>
+              <geom pos="-0.07125 0 -0.01475" quat="-1.64085e-08 -0.707107 1.64085e-08 -0.707107" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="dummy_tube_wrist_1" mass="0.126"/>
+              <geom type='sphere' size='.001' name="payload_mass" pos='-0.44825 0 -0.015' rgba='1 1 1 1' mass='4'/>
+              <site type='sphere' size='.015' name='endeff' pos='-0.44825 0 -0.015' rgba='1 1 1 1'/>
             </body>
           </body>
         </body>

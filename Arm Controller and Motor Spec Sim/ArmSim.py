@@ -6,7 +6,6 @@ import math
 import numpy as np
 import os
 # My Class Imports
-from TrajectoryPlanner import TrajectoryPlanner6dof as traj
 from Controller import Controller6dof as ctrl
 
 
@@ -19,7 +18,8 @@ os.system("cls")
 
 # XML File and Simulation Time
 #xml_path = 'robot/v2_asm.xml' #xml file (assumes this is in the same folder as this file)
-xml_path = '131-1x3-none/sim_arm_131-1x3-none.xml' #xml file (assumes this is in the same folder as this file)
+#xml_path = '131-1x3-none/sim_arm_131-1x3-none.xml' #xml file (assumes this is in the same folder as this file)
+xml_path = '4dof_arm_v2/4dof_arm_v2.xml' #xml file (assumes this is in the same folder as this file)
 simend = 15 #simulation time
 print_camera_config = 0 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
@@ -187,6 +187,8 @@ glfw.set_mouse_button_callback(window, mouse_button)
 glfw.set_scroll_callback(window, scroll)
 
 # Example on how to set camera configuration
+#cam.azimuth = 180
+#cam.elevation = 0
 cam.azimuth = 135
 cam.elevation = -15
 cam.distance = 2
