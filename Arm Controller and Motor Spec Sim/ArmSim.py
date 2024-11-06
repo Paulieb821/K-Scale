@@ -232,4 +232,5 @@ while not glfw.window_should_close(window):
 
 glfw.terminate()
 
-armController.traj.plotJoints(motorSpecs=motorSpecs)
+# armController.traj.plotJoints(motorSpecs=motorSpecs)
+armController.traj.batteryCalc(36, 2, motorSpecs, 100)
