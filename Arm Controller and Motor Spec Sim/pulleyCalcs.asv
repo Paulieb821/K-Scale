@@ -1,0 +1,9 @@
+e = 300e-3; % m (center to center distance)
+ds = 20.62e-3; %m (driving pulley diameter)_
+dl = 57.302e-3; %m (driven pulley diameter)
+Tm = 17; % Nm (Peak torque from motor)
+mu = 0.3 ; % Coefficient of friction assumption (chan
+wrap_angle = pi - 2 * asin((dl - ds) / 2*e);
+Ft = Tm / (0.5 * ds); % N (High tension side force)
+Fs = Ft / exp(mu * wrap_angle); % N (Low tension side force)
+Fb = sqrt(Ft^2 + Fs^2 - 2 * Ft * Fs * cos(wrap_angle))

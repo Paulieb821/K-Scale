@@ -202,50 +202,7 @@ class TrajectoryPlanner6dof:
         self.xref = xref
         self.uref = uref
 
-    # Plot Joint Trajectories
-    # def plotJoints(self, motorSpecs = None):
-    #     # Setup
-    #     rpm_to_rads = 0.1047
-    #     fig, axs = self.plt.subplots(6, self.numJoints)
-    #     # Joints
-    #     for joint in range(self.numJoints):
-    #         for row in range(6):
-    #             ax = axs[row, joint]
-    #             if row == 0:
-    #                 ax.plot(self.timeArr, self.xref[:,joint])
-    #                 ax.plot(self.realTime, self.realPos[:, joint])
-    #                 ax.plot(self.realTime, self.estPos[:, joint])
-    #             elif row == 1:
-    #                 ax.plot(self.timeArr, self.xref[:,self.numJoints+joint])
-    #                 ax.plot(self.realTime, self.realVel[:, joint])
-    #                 ax.plot(self.realTime, self.estVel[:, joint])
-    #             elif row == 2:
-    #                 ax.plot(self.realTime, self.realTorque[:,joint])
-    #             elif row == 3:
-    #                 ax.plot(abs(self.realVel[:,joint]), abs(self.realTorque[:,joint]))
-    #                 if motorSpecs != None:
-    #                     ax.plot([0, motorSpecs[joint]["contw"]*rpm_to_rads], [motorSpecs[joint]["contT"], motorSpecs[joint]["contT"]], color='g')
-    #                     ax.plot([motorSpecs[joint]["contw"]*rpm_to_rads, motorSpecs[joint]["contw"]*rpm_to_rads], [0, motorSpecs[joint]["contT"]], color='g')
-    #                     ax.plot([0, motorSpecs[joint]["contw"]*rpm_to_rads], [motorSpecs[joint]["peakT"], motorSpecs[joint]["contT"]], color='r')
-    #                     ax.plot([motorSpecs[joint]["peakw"]*rpm_to_rads, motorSpecs[joint]["contw"]*rpm_to_rads], [0, motorSpecs[joint]["contT"]], color='r')
-    #             elif row == 4:
-    #                 power = np.multiply(self.realTorque[:,joint], self.realVel[:, joint])
-    #                 ax.plot(self.realTime, power, color='b')
-    #             else:
-    #                 if motorSpecs != None:
-    #                     # Extra motor specs and calculate current
-    #                     Kt = motorSpecs[joint]["Kt"]
-    #                     R = motorSpecs[joint]["R"]
-    #                     I = self.realTorque[:,joint]/Kt
-    #                     # Calculate heat generation
-    #                     heat = np.square(I)*R
-    #                     ax.plot(self.realTime, heat, color='r')
-    #                     # Calculate and plot average heat generation rate
-    #                     avgHeat = round(np.sum(heat)/np.size(self.realTime),2)
-    #                     print("Average Heat Gen for Joint", joint+1, ": ", avgHeat, "W")
-    #     # Plot
-    #     plt.show()
-    # Plot Joint Trajectories
+    
     def plotJoints(self, motorSpecs=None):
         # Setup
         rpm_to_rads = 0.1047
@@ -316,10 +273,8 @@ class TrajectoryPlanner6dof:
                         ax.grid(True)
                         # # Calculate heat generation
                         # heat = np.square(I) * R
-                        
                         # # Plot heat generation on the original figure (ax)
-                        # ax.plot(self.realTime, heat, color='r', label="Heat Generation")
-                        
+                        # ax.plot(self.realTime, heat, color='r', label="Heat Generation")                        
                         # # Calculate and display average heat generation rate
                         # avgHeat = round(np.sum(heat) / np.size(self.realTime), 2)
                         # ax.set_ylabel("Heat (W)")
@@ -340,18 +295,29 @@ class TrajectoryPlanner6dof:
         plt.subplots_adjust(top=0.9)  # To accommodate the title
         plt.show()
 
-    def batteryCalc(self, nominal_voltage, fos, motorSpecs, cycles):
+    def batteryCalc(self, nominal_voltage, fos, motorSpecs, cycles, efficiency=0.8):
         torque = np.abs(np.tile(self.realTorque, (cycles, 1)))
         velocity = np.abs(np.tile(self.realVel, (cycles, 1)))
-        time = np.arange(0, velocity.shape[0])
-
-        # time = 
+        time = np.tile(self.realTime, (cycles, 1)).flatten()
         print(f"torque, {self.realTorque.shape}")
         print(f"torque cycled, {torque.shape}")
+        print(f"Time shape cycled, {time.shape}")   
+        fig, axs = plt.subplots(4, 1, figsize=(10, 8), sharex=True)
+        for i in range(4):
+            axs[i].plot(time, torque[:, i])
+            axs[i].set_ylabel(f'Torque Motor {i+1}')
+            axs[i].grid(True)
+
+        # Set common labels
+        axs[-1].set_xlabel('Time')
+        fig.suptitle('Torque vs Time for 4 Motors')
+        plt.show()
+        # time = 
+        
         mechanical_power = np.abs(torque * velocity)  # Element-wise multiplication
         total_mech_power_time = np.sum(mechanical_power, axis=1)
         total_mech_energy = np.trapz(total_mech_power_time, time) / 3600  # in Wh
-        total_electrical_energy = fos * total_mech_energy # Wh
+        total_electrical_energy = fos * (total_mech_energy / efficiency)# Wh
         battery_capacity_Ah = total_electrical_energy / nominal_voltage # Ah capacity = electrical energy / voltage
         
         I = np.zeros((torque.shape[0], self.numJoints)) 
@@ -370,7 +336,8 @@ class TrajectoryPlanner6dof:
         print("Total Electrical energy :", total_electrical_energy, "Wh")
         print("Required Battery Capacity :", battery_capacity_Ah, "Ah")
         print("Required C rating :", C_rate)
-        print("Operating time : ", operating_time, "minutes")
+        print("Operating time : ", time / 60, "minutes")
+
 
 
 

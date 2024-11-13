@@ -225,6 +225,7 @@ while not glfw.window_should_close(window):
     mj.mjr_render(viewport, scene, context)
 
     # swap OpenGL buffers (blocking call due to v-sync)
+
     glfw.swap_buffers(window)
 
     # process pending GUI events, call GLFW callbacks
@@ -232,5 +233,5 @@ while not glfw.window_should_close(window):
 
 glfw.terminate()
 
-# armController.traj.plotJoints(motorSpecs=motorSpecs)
-armController.traj.batteryCalc(36, 2, motorSpecs, 100)
+armController.traj.plotJoints(motorSpecs=motorSpecs)
+armController.traj.batteryCalc(36, 2, motorSpecs, 1)
