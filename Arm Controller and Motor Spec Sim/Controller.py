@@ -37,7 +37,7 @@ class Controller6dof:
         # Trajectory
         self.traj = self.createTrajectory()
         self.trajIndex = 0
-
+    
 
     def createTrajectory(self):
         return traj(self.model, self.data, self.site, self.data.qpos, self.updateFreq)

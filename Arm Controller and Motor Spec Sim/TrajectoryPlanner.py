@@ -198,7 +198,7 @@ class TrajectoryPlanner6dof:
             for i in range(numPoints-1):
                 uref[i,j] = a*xref[i,self.numJoints+j] + b*(xref[i+1,j] - xref[i,j])
                 xref[i+1,self.numJoints+j] = xref[i,self.numJoints+j] + T*uref[i,j]
-        # Add to Trajectory 
+        # Add to Trajectory
         self.xref = xref
         self.uref = uref
 
@@ -209,6 +209,9 @@ class TrajectoryPlanner6dof:
         fig, axs = self.plt.subplots(6, self.numJoints, figsize=(15, 10))
         fig.suptitle("Joint Trajectories", fontsize=16)
         # Joints
+        print("Time shape : ", self.realTime.shape)
+        print("toruque shape : ", self.realTorque.shape)
+        print("velocity shape : ", self.realVel.shape)
         for joint in range(self.numJoints):
             for row in range(6):
                 ax = axs[row, joint]

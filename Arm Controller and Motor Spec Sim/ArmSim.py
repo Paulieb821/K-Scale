@@ -8,7 +8,7 @@ import os
 # My Class Imports
 from Controller import Controller6dof as ctrl
 
-
+ 
 ###############
 # SETUP STUFF #
 ###############
@@ -41,7 +41,7 @@ opt = mj.MjvOption()                        # visualization options
 
 # Declare Controller
 #armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
-armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 10, False)
+armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 1, False)
 
 # Set Trajectory
 # 4-DOF Bot Example
@@ -234,4 +234,5 @@ while not glfw.window_should_close(window):
 glfw.terminate()
 
 armController.traj.plotJoints(motorSpecs=motorSpecs)
-armController.traj.batteryCalc(36, 2, motorSpecs, 1)
+
+# armController.traj.batteryCalc(36, 2, motorSpecs, 1)
