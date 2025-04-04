@@ -1,0 +1,13 @@
+{
+    "url": "https://cad.onshape.com/documents/89c2000dd1a2e6c0b43141b5/w/011f2e3700106f95fa6aa43d/e/3c9bddcc473df1d7f4c42780",
+    "output_format": "mujoco",
+    
+    "joint_properties": {
+        "default": {
+            "actuated": true,
+            "type": "motor"
+        }
+    }
+}
+
+

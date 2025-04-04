@@ -25,7 +25,11 @@ fprintf('Slack side tension (Fs): %.2f N\n', F2);
 fprintf('Resultant belt force (Fb): %.2f N\n', Fr);
 % belt dimensions
 
-min_belt_length = (sqrt(4 * C^2 - (D - d)^2) + 0.5 * (D * phi_big + d * phi_big)) * 1000 % mm
+min_belt_length = (sqrt(4 * C^2 - (D - d)^2) + 0.5 * (D * phi_big + d * phi_big)) * 1000; % mm
+belt_length = 735;
+center_center_distance = 0.5 * sqrt((belt_length/1000 - 0.5*phi_big*(D+d))^2 + (D-d)^2)
+
+
 %% Key failure check 
 %% Key and Shaft Failure Torque Estimation
 % This script estimates the torque at which:
@@ -50,7 +54,7 @@ sigma_allow_key = 0.9 * Sy_key;  % [Pa] allowable bearing (compressive) stress
 shaft_diameter = 5/16 * 25.4;
 shaft_radius   = shaft_diameter / 2;
 
-%Shaft properties : Assume Aluminum 7075 
+%Shaft properties : Assume Aluminum 6061
 Sy_shaft = 276.e6; % Pa : yield strength shaft
 tau_allow_shaft = 0.6 * Sy_shaft;
 

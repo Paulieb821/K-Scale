@@ -19,7 +19,8 @@ os.system("cls")
 # XML File and Simulation Time
 #xml_path = 'robot/v2_asm.xml' #xml file (assumes this is in the same folder as this file)
 #xml_path = '131-1x3-none/sim_arm_131-1x3-none.xml' #xml file (assumes this is in the same folder as this file)
-xml_path = '4dof_arm_v2/4dof_arm_v2.xml' #xml file (assumes this is in the same folder as this file)
+# xml_path = '4dof_arm_v2/4dof_arm_v2.xml' #xml file (assumes this is in the same folder as this file)
+xml_path = 'Sim_Arm_4DOF_Mar_25/robot.xml'
 simend = 15 #simulation time
 print_camera_config = 0 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
@@ -41,7 +42,7 @@ opt = mj.MjvOption()                        # visualization options
 
 # Declare Controller
 #armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
-armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 1, False)
+armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 10, False)
 
 # Set Trajectory
 # 4-DOF Bot Example

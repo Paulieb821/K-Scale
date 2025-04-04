@@ -1,0 +1,649 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/89c2000dd1a2e6c0b43141b5/w/011f2e3700106f95fa6aa43d/e/3c9bddcc473df1d7f4c42780 -->
+<mujoco model="Sim_Arm_4DOF_Mar_25">
+  <compiler angle="radian" meshdir="assets" autolimits="true"/>
+  <default>
+    <default class="Sim_Arm_4DOF_Mar_25">
+      <joint frictionloss="0.1" armature="0.005"/>
+      <position kp="50" dampratio="1"/>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+      </default>
+      <default class="collision">
+        <geom group="3"/>
+      </default>
+    </default>
+  </default>
+
+  <contact>
+    <exclude name="fix01" body1="root" body2="body_1"/>
+    <exclude name="fix02" body1="root" body2="body_2"/>
+    <exclude name="fix03" body1="root" body2="body_3"/>
+    <exclude name="fix04" body1="root" body2="body_4"/>
+    <exclude name="fix05" body1="body_1" body2="body_2"/>
+    <exclude name="fix06" body1="body_1" body2="body_3"/>
+    <exclude name="fix07" body1="body_1" body2="body_4"/>
+    <exclude name="fix08" body1="body_2" body2="body_3"/>
+    <exclude name="fix09" body1="body_2" body2="body_4"/>
+    <exclude name="fix10" body1="body_3" body2="body_4"/>
+  </contact>
+  
+  <worldbody>
+    <!-- Link rs01_sim -->
+    <body name="root" pos="0 0 0" quat="1 0 0 0" childclass="Sim_Arm_4DOF_Mar_25">
+      <inertial pos="5.67174e-05 -0.123231 -0.322029" mass="3.61283" fullinertia="0.122389 0.109538 0.0200598 -2.70646e-05 -7.12059e-05 -0.0369225"/>
+      <!-- Part head_mount_v2 -->
+      <geom type="mesh" class="visual" pos="5.78948e-18 -0.025 -0.5455" quat="0.707107 0 0 0.707107" mesh="head_mount_v2" material="head_mount_v2_material"/>
+      <geom type="mesh" class="collision" pos="5.78948e-18 -0.025 -0.5455" quat="0.707107 0 0 0.707107" mesh="head_mount_v2" material="head_mount_v2_material"/>
+      <!-- Part battery_mount_body__configuration_default -->
+      <geom type="mesh" class="visual" pos="1.27001e-09 -0.0231493 -0.5368" quat="0.707107 0 0 0.707107" mesh="battery_mount_body__configuration_default" material="battery_mount_body__configuration_default_material"/>
+      <geom type="mesh" class="collision" pos="1.27001e-09 -0.0231493 -0.5368" quat="0.707107 0 0 0.707107" mesh="battery_mount_body__configuration_default" material="battery_mount_body__configuration_default_material"/>
+      <!-- Part hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30 -->
+      <geom type="mesh" class="visual" pos="0.066 -0.0164 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <geom type="mesh" class="collision" pos="0.066 -0.0164 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <!-- Part mock_battery__configuration_default -->
+      <geom type="mesh" class="visual" pos="3.29745e-09 -0.0191493 -0.54005" quat="0.707107 -1.96519e-08 -1.96519e-08 0.707107" mesh="mock_battery__configuration_default" material="mock_battery__configuration_default_material"/>
+      <geom type="mesh" class="collision" pos="3.29745e-09 -0.0191493 -0.54005" quat="0.707107 -1.96519e-08 -1.96519e-08 0.707107" mesh="mock_battery__configuration_default" material="mock_battery__configuration_default_material"/>
+      <!-- Part hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58 -->
+      <geom type="mesh" class="visual" pos="-0.038 -0.1825 -0.4998" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <geom type="mesh" class="collision" pos="-0.038 -0.1825 -0.4998" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <!-- Part tubes -->
+      <geom type="mesh" class="visual" pos="-0.119 0.0496 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <geom type="mesh" class="collision" pos="-0.119 0.0496 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <!-- Part battery_mount_cover__configuration_default -->
+      <geom type="mesh" class="visual" pos="1.27001e-09 -0.0231493 -0.5368" quat="0.707107 0 0 0.707107" mesh="battery_mount_cover__configuration_default" material="battery_mount_cover__configuration_default_material"/>
+      <geom type="mesh" class="collision" pos="1.27001e-09 -0.0231493 -0.5368" quat="0.707107 0 0 0.707107" mesh="battery_mount_cover__configuration_default" material="battery_mount_cover__configuration_default_material"/>
+      <!-- Part hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_2 -->
+      <geom type="mesh" class="visual" pos="-0.066 -0.0164 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <geom type="mesh" class="collision" pos="-0.066 -0.0164 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <!-- Part hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_2 -->
+      <geom type="mesh" class="visual" pos="-0.076 -0.1825 -0.3608" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <geom type="mesh" class="collision" pos="-0.076 -0.1825 -0.3608" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <!-- Part rs01_sim -->
+      <geom type="mesh" class="visual" pos="4.3476e-18 -3.04364e-34 0.0085" quat="1 0 0 0" mesh="rs01_sim" material="rs01_sim_material"/>
+      <geom type="mesh" class="collision" pos="4.3476e-18 -3.04364e-34 0.0085" quat="1 0 0 0" mesh="rs01_sim" material="rs01_sim_material"/>
+      <!-- Part tubes_2 -->
+      <geom type="mesh" class="visual" pos="-0.119 0.094 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <geom type="mesh" class="collision" pos="-0.119 0.094 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <!-- Part hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_3 -->
+      <geom type="mesh" class="visual" pos="0.038 -0.1825 -0.4998" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <geom type="mesh" class="collision" pos="0.038 -0.1825 -0.4998" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <!-- Part hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_3 -->
+      <geom type="mesh" class="visual" pos="0.066 0.028 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <geom type="mesh" class="collision" pos="0.066 0.028 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <!-- Part tubes_3 -->
+      <geom type="mesh" class="visual" pos="0.013 0.0496 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <geom type="mesh" class="collision" pos="0.013 0.0496 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <!-- Part hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_4 -->
+      <geom type="mesh" class="visual" pos="-0.066 0.028 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <geom type="mesh" class="collision" pos="-0.066 0.028 -0.0325" quat="0.707107 0 0 0.707107" mesh="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30" material="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material"/>
+      <!-- Part tubes_4 -->
+      <geom type="mesh" class="visual" pos="0.013 0.094 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <geom type="mesh" class="collision" pos="0.013 0.094 -0.5455" quat="1 0 0 0" mesh="tubes" material="tubes_material"/>
+      <!-- Part hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_4 -->
+      <geom type="mesh" class="visual" pos="0.076 -0.1825 -0.3608" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <geom type="mesh" class="collision" pos="0.076 -0.1825 -0.3608" quat="0 0 -0.707107 0.707107" mesh="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58" material="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material"/>
+      <!-- Link main_shoulder_bracket -->
+      <body name="body_1" pos="4.3476e-18 -3.04364e-34 0.0405" quat="1 0 0 0">
+        <!-- Joint from rs01_sim to main_shoulder_bracket -->
+        <joint name="J1" type="hinge" range="-2.9670597283903604 2.9670597283903604"/>
+        <inertial pos="-0.0809191 5.73713e-07 0.0634005" mass="1.26445" fullinertia="0.00230911 0.00381546 0.00335662 -7.07513e-08 0.000825204 4.063e-08"/>
+        <!-- Part rs03_sim -->
+        <geom type="mesh" class="visual" pos="-0.07725 -2.49969e-15 0.07435" quat="1.96262e-17 0.707107 -0 0.707107" mesh="rs03_sim" material="rs03_sim_material"/>
+        <geom type="mesh" class="collision" pos="-0.07725 -2.49969e-15 0.07435" quat="1.96262e-17 0.707107 -0 0.707107" mesh="rs03_sim" material="rs03_sim_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c -->
+        <geom type="mesh" class="visual" pos="-0.06725 -0.0187515 0.11962" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 -0.0187515 0.11962" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part main_shoulder_bracket -->
+        <geom type="mesh" class="visual" pos="0 0 0.01" quat="1 0 0 0" mesh="main_shoulder_bracket" material="main_shoulder_bracket_material"/>
+        <geom type="mesh" class="collision" pos="0 0 0.01" quat="1 0 0 0" mesh="main_shoulder_bracket" material="main_shoulder_bracket_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_2 -->
+        <geom type="mesh" class="visual" pos="0.0119979 0.000221993 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="0.0119979 0.000221993 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_3 -->
+        <geom type="mesh" class="visual" pos="-0.0119979 -0.000221993 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.0119979 -0.000221993 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_4 -->
+        <geom type="mesh" class="visual" pos="-0.06725 -0.0452701 0.0555985" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 -0.0452701 0.0555985" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_5 -->
+        <geom type="mesh" class="visual" pos="-0.06725 0.0452701 0.0555985" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 0.0452701 0.0555985" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_6 -->
+        <geom type="mesh" class="visual" pos="0.00580672 0.0105015 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="0.00580672 0.0105015 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_7 -->
+        <geom type="mesh" class="visual" pos="-0.00580672 -0.0105015 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.00580672 -0.0105015 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_8 -->
+        <geom type="mesh" class="visual" pos="-0.00619122 0.0102795 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.00619122 0.0102795 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_9 -->
+        <geom type="mesh" class="visual" pos="-0.06725 -0.0452701 0.0931015" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 -0.0452701 0.0931015" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_10 -->
+        <geom type="mesh" class="visual" pos="-0.06725 -0.0187515 0.0290799" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 -0.0187515 0.0290799" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_11 -->
+        <geom type="mesh" class="visual" pos="0.00619122 -0.0102795 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="0.00619122 -0.0102795 0.01" quat="1 0 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_12 -->
+        <geom type="mesh" class="visual" pos="-0.06725 0.0452701 0.0931015" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 0.0452701 0.0931015" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_13 -->
+        <geom type="mesh" class="visual" pos="-0.06725 0.0187515 0.0290799" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 0.0187515 0.0290799" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_14 -->
+        <geom type="mesh" class="visual" pos="-0.06725 0.0187515 0.11962" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <geom type="mesh" class="collision" pos="-0.06725 0.0187515 0.11962" quat="0.5 0.5 0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c" material="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material"/>
+        <!-- Part j3_support_bearing_structure -->
+        <geom type="mesh" class="visual" pos="0.06225 1.8269e-20 0.07435" quat="0.5 -0.5 0.5 0.5" mesh="j3_support_bearing_structure" material="j3_support_bearing_structure_material"/>
+        <geom type="mesh" class="collision" pos="0.06225 1.8269e-20 0.07435" quat="0.5 -0.5 0.5 0.5" mesh="j3_support_bearing_structure" material="j3_support_bearing_structure_material"/>
+        <!-- Link rs03_bridge_bracket_spacer -->
+        <body name="body_2" pos="-0.07475 5.07686e-18 0.07435" quat="0.5 0.5 0.5 0.5">
+          <!-- Joint from main_shoulder_bracket to rs03_bridge_bracket_spacer -->
+          <joint name="J2" type="hinge" range="-1.7453292519943295 0.8726646259971648"/>
+          <inertial pos="-0.00014575 -0.00321666 0.0656609" mass="0.568795" fullinertia="0.000578743 0.000705283 0.000322733 2.99482e-07 8.79126e-07 1.6376e-05"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d -->
+          <geom type="mesh" class="visual" pos="-0.034062 0.02335 0.0878661" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.034062 0.02335 0.0878661" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385 -->
+          <geom type="mesh" class="visual" pos="-0.0424 -0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <geom type="mesh" class="collision" pos="-0.0424 -0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_2 -->
+          <geom type="mesh" class="visual" pos="-0.0188316 -0.02335 0.0434831" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.0188316 -0.02335 0.0434831" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_3 -->
+          <geom type="mesh" class="visual" pos="-0.0188316 0.02335 0.0434831" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.0188316 0.02335 0.0434831" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_4 -->
+          <geom type="mesh" class="visual" pos="-0.034062 -0.02335 0.0878661" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.034062 -0.02335 0.0878661" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_5 -->
+          <geom type="mesh" class="visual" pos="0.0056721 -0.02335 0.0386934" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.0056721 -0.02335 0.0386934" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c -->
+          <geom type="mesh" class="visual" pos="-0.0424 0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <geom type="mesh" class="collision" pos="-0.0424 0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <!-- Part hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_2 -->
+          <geom type="mesh" class="visual" pos="-0.0424 0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <geom type="mesh" class="collision" pos="-0.0424 0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <!-- Part m3_to_m2_bracket -->
+          <geom type="mesh" class="visual" pos="1.28092e-17 -0.06435 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="m3_to_m2_bracket" material="m3_to_m2_bracket_material"/>
+          <geom type="mesh" class="collision" pos="1.28092e-17 -0.06435 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="m3_to_m2_bracket" material="m3_to_m2_bracket_material"/>
+          <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_2 -->
+          <geom type="mesh" class="visual" pos="-0.0424 -0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <geom type="mesh" class="collision" pos="-0.0424 -0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <!-- Part rs02_sim -->
+          <geom type="mesh" class="visual" pos="-5.05635e-18 -0.0275 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="rs02_sim" material="rs02_sim_material"/>
+          <geom type="mesh" class="collision" pos="-5.05635e-18 -0.0275 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="rs02_sim" material="rs02_sim_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_6 -->
+          <geom type="mesh" class="visual" pos="0.0283899 -0.02335 0.0976905" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.0283899 -0.02335 0.0976905" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_3 -->
+          <geom type="mesh" class="visual" pos="0.0424 -0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <geom type="mesh" class="collision" pos="0.0424 -0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <!-- Part rs03_bridge_bracket_spacer -->
+          <geom type="mesh" class="visual" pos="2.25514e-17 -0.06435 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="rs03_bridge_bracket_spacer" material="rs03_bridge_bracket_spacer_material"/>
+          <geom type="mesh" class="collision" pos="2.25514e-17 -0.06435 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="rs03_bridge_bracket_spacer" material="rs03_bridge_bracket_spacer_material"/>
+          <!-- Part hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_3 -->
+          <geom type="mesh" class="visual" pos="0.0424 0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <geom type="mesh" class="collision" pos="0.0424 0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_7 -->
+          <geom type="mesh" class="visual" pos="0.0275218 0.02335 0.050775" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.0275218 0.02335 0.050775" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_8 -->
+          <geom type="mesh" class="visual" pos="0.0056721 0.02335 0.0386934" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.0056721 0.02335 0.0386934" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_4 -->
+          <geom type="mesh" class="visual" pos="0.0424 -0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <geom type="mesh" class="collision" pos="0.0424 -0.0075 0.0275" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_4 -->
+          <geom type="mesh" class="visual" pos="1.47525e-18 -0.02735 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <geom type="mesh" class="collision" pos="1.47525e-18 -0.02735 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_9 -->
+          <geom type="mesh" class="visual" pos="0.0275218 -0.02335 0.050775" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.0275218 -0.02335 0.050775" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_10 -->
+          <geom type="mesh" class="visual" pos="-0.0345239 -0.02335 0.0629029" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.0345239 -0.02335 0.0629029" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_11 -->
+          <geom type="mesh" class="visual" pos="0.0283899 0.02335 0.0976905" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.0283899 0.02335 0.0976905" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_12 -->
+          <geom type="mesh" class="visual" pos="-0.0345239 0.02335 0.0629029" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.0345239 0.02335 0.0629029" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_13 -->
+          <geom type="mesh" class="visual" pos="0.00700204 -0.02335 0.110572" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.00700204 -0.02335 0.110572" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_14 -->
+          <geom type="mesh" class="visual" pos="-0.0176621 0.02335 0.106692" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.0176621 0.02335 0.106692" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_15 -->
+          <geom type="mesh" class="visual" pos="-0.0176621 -0.02335 0.106692" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="-0.0176621 -0.02335 0.106692" quat="0.5 0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_16 -->
+          <geom type="mesh" class="visual" pos="0.00700204 0.02335 0.110572" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <geom type="mesh" class="collision" pos="0.00700204 0.02335 0.110572" quat="0.5 -0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+          <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_5 -->
+          <geom type="mesh" class="visual" pos="-4.59767e-18 0.02735 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <geom type="mesh" class="collision" pos="-4.59767e-18 0.02735 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <!-- Part hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_5 -->
+          <geom type="mesh" class="visual" pos="-4.91147e-18 -0.02735 0.0282" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <geom type="mesh" class="collision" pos="-4.91147e-18 -0.02735 0.0282" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <!-- Part hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_6 -->
+          <geom type="mesh" class="visual" pos="-2.09597e-17 0.02735 0.0282" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <geom type="mesh" class="collision" pos="-2.09597e-17 0.02735 0.0282" quat="1 1.08591e-16 -1.11022e-16 1.11022e-16" mesh="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385" material="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material"/>
+          <!-- Part m3_to_bearing_bracket -->
+          <geom type="mesh" class="visual" pos="1.23908e-17 -0.06435 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="m3_to_bearing_bracket" material="m3_to_bearing_bracket_material"/>
+          <geom type="mesh" class="collision" pos="1.23908e-17 -0.06435 0.07475" quat="0.5 -0.5 -0.5 -0.5" mesh="m3_to_bearing_bracket" material="m3_to_bearing_bracket_material"/>
+          <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_6 -->
+          <geom type="mesh" class="visual" pos="0.0424 0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <geom type="mesh" class="collision" pos="0.0424 0.0075 0.0143" quat="4.59828e-17 -1 -2.77556e-17 -5.50179e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+          <!-- Link shoulder_input_bracket -->
+          <body name="body_3" pos="-1.12209e-18 0.018 0.07475" quat="0.5 0.5 0.5 -0.5">
+            <!-- Joint from rs03_bridge_bracket_spacer to shoulder_input_bracket -->
+            <joint name="J3" type="hinge" range="-2.9670597283903604 2.9670597283903604"/>
+            <inertial pos="-0.00547356 -1.39845e-05 -0.144593" mass="1.15833" fullinertia="0.0175018 0.0172125 0.000810884 4.89561e-07 -0.000203706 2.95645e-06"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34 -->
+            <geom type="mesh" class="visual" pos="-0.007825 -0.0355439 -0.0287287" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.007825 -0.0355439 -0.0287287" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf -->
+            <geom type="mesh" class="visual" pos="0.005825 -0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <geom type="mesh" class="collision" pos="0.005825 -0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <!-- Part main_plate -->
+            <geom type="mesh" class="visual" pos="-0.023525 2.52713e-17 -0.0656" quat="0.5 0.5 -0.5 0.5" mesh="main_plate" material="main_plate_material"/>
+            <geom type="mesh" class="collision" pos="-0.023525 2.52713e-17 -0.0656" quat="0.5 0.5 -0.5 0.5" mesh="main_plate" material="main_plate_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e -->
+            <geom type="mesh" class="visual" pos="-0.012 -1.97602e-17 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <geom type="mesh" class="collision" pos="-0.012 -1.97602e-17 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_2 -->
+            <geom type="mesh" class="visual" pos="0.020175 -0.0188316 -0.0968669" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 -0.0188316 -0.0968669" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part shoulder_input_bracket -->
+            <geom type="mesh" class="visual" pos="-0.017175 4.47966e-17 -0.0656" quat="0.5 -0.5 -0.5 -0.5" mesh="shoulder_input_bracket" material="shoulder_input_bracket_material"/>
+            <geom type="mesh" class="collision" pos="-0.017175 4.47966e-17 -0.0656" quat="0.5 -0.5 -0.5 -0.5" mesh="shoulder_input_bracket" material="shoulder_input_bracket_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_3 -->
+            <geom type="mesh" class="visual" pos="-0.026525 0.034062 -0.0524839" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 0.034062 -0.0524839" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part secondary_plate -->
+            <geom type="mesh" class="visual" pos="-0.017175 -2.99948e-17 -0.0656" quat="0.5 -0.5 -0.5 -0.5" mesh="secondary_plate" material="secondary_plate_material"/>
+            <geom type="mesh" class="collision" pos="-0.017175 -2.99948e-17 -0.0656" quat="0.5 -0.5 -0.5 -0.5" mesh="secondary_plate" material="secondary_plate_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d -->
+            <geom type="mesh" class="visual" pos="0.020175 -0.016 -0.2019" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d" material="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 -0.016 -0.2019" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d" material="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab -->
+            <geom type="mesh" class="visual" pos="-0.027475 0.00580672 -0.0761015" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <geom type="mesh" class="collision" pos="-0.027475 0.00580672 -0.0761015" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d_2 -->
+            <geom type="mesh" class="visual" pos="0.020175 0.016 -0.2019" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d" material="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 0.016 -0.2019" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d" material="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_4 -->
+            <geom type="mesh" class="visual" pos="0.020175 0.0283905 -0.0426603" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 0.0283905 -0.0426603" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_2 -->
+            <geom type="mesh" class="visual" pos="-0.027475 -0.00580672 -0.0550985" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <geom type="mesh" class="collision" pos="-0.027475 -0.00580672 -0.0550985" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_5 -->
+            <geom type="mesh" class="visual" pos="0.020175 0.0275212 -0.0895757" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 0.0275212 -0.0895757" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_6 -->
+            <geom type="mesh" class="visual" pos="0.020175 0.00700298 -0.0297781" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 0.00700298 -0.0297781" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_2 -->
+            <geom type="mesh" class="visual" pos="0.006 -0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <geom type="mesh" class="collision" pos="0.006 -0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_7 -->
+            <geom type="mesh" class="visual" pos="0.020175 -0.0340616 -0.052483" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 -0.0340616 -0.052483" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part input_shaft_pulley_coupler -->
+            <geom type="mesh" class="visual" pos="-0.017175 2.51431e-17 -0.0656" quat="7.12291e-16 -0.707107 -0.707107 7.19758e-16" mesh="input_shaft_pulley_coupler" material="input_shaft_pulley_coupler_material"/>
+            <geom type="mesh" class="collision" pos="-0.017175 2.51431e-17 -0.0656" quat="7.12291e-16 -0.707107 -0.707107 7.19758e-16" mesh="input_shaft_pulley_coupler" material="input_shaft_pulley_coupler_material"/>
+            <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_7 -->
+            <geom type="mesh" class="visual" pos="0.005825 0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <geom type="mesh" class="collision" pos="0.005825 0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_8 -->
+            <geom type="mesh" class="visual" pos="0.020175 -0.0176621 -0.0336579" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 -0.0176621 -0.0336579" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_9 -->
+            <geom type="mesh" class="visual" pos="0.020175 0.00567116 -0.101657" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 0.00567116 -0.101657" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_3 -->
+            <geom type="mesh" class="visual" pos="-0.027475 0.0119979 -0.065822" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <geom type="mesh" class="collision" pos="-0.027475 0.0119979 -0.065822" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_2 -->
+            <geom type="mesh" class="visual" pos="0.005825 0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <geom type="mesh" class="collision" pos="0.005825 0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_8 -->
+            <geom type="mesh" class="visual" pos="-0.003825 0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <geom type="mesh" class="collision" pos="-0.003825 0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_10 -->
+            <geom type="mesh" class="visual" pos="-0.007825 0.0355439 -0.0287287" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.007825 0.0355439 -0.0287287" quat="6.92357e-17 -0.707107 -0 -0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_3 -->
+            <geom type="mesh" class="visual" pos="0.012 4.67513e-17 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <geom type="mesh" class="collision" pos="0.012 4.67513e-17 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_11 -->
+            <geom type="mesh" class="visual" pos="-0.026525 -0.0275218 -0.089575" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 -0.0275218 -0.089575" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part anti_deflection_support -->
+            <geom type="mesh" class="visual" pos="0.010825 -1.97566e-16 -0.3382" quat="0.5 -0.5 0.5 0.5" mesh="anti_deflection_support" material="anti_deflection_support_material"/>
+            <geom type="mesh" class="collision" pos="0.010825 -1.97566e-16 -0.3382" quat="0.5 -0.5 0.5 0.5" mesh="anti_deflection_support" material="anti_deflection_support_material"/>
+            <!-- Part input_pulley -->
+            <geom type="mesh" class="visual" pos="-0.017675 2.59709e-17 -0.0656" quat="7.04662e-16 -0.707107 -0.707107 7.15804e-16" mesh="input_pulley" material="input_pulley_material"/>
+            <geom type="mesh" class="collision" pos="-0.017675 2.59709e-17 -0.0656" quat="7.04662e-16 -0.707107 -0.707107 7.15804e-16" mesh="input_pulley" material="input_pulley_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_4 -->
+            <geom type="mesh" class="visual" pos="-0.027475 0.00619122 -0.0553205" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <geom type="mesh" class="collision" pos="-0.027475 0.00619122 -0.0553205" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_12 -->
+            <geom type="mesh" class="visual" pos="-0.026525 -0.0364938 -0.0662752" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 -0.0364938 -0.0662752" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_4 -->
+            <geom type="mesh" class="visual" pos="0.006 0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <geom type="mesh" class="collision" pos="0.006 0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_3 -->
+            <geom type="mesh" class="visual" pos="-0.003825 -0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <geom type="mesh" class="collision" pos="-0.003825 -0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_13 -->
+            <geom type="mesh" class="visual" pos="-0.026525 -0.0283899 -0.0426595" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 -0.0283899 -0.0426595" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_9 -->
+            <geom type="mesh" class="visual" pos="0.005825 -0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <geom type="mesh" class="collision" pos="0.005825 -0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_14 -->
+            <geom type="mesh" class="visual" pos="-0.026525 -0.0056721 -0.101657" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 -0.0056721 -0.101657" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part shoulder_input -->
+            <geom type="mesh" class="visual" pos="-0.017175 -2.10448e-16 -0.0656" quat="0.5 -0.5 -0.5 -0.5" mesh="shoulder_input" material="shoulder_input_material"/>
+            <geom type="mesh" class="collision" pos="-0.017175 -2.10448e-16 -0.0656" quat="0.5 -0.5 -0.5 -0.5" mesh="shoulder_input" material="shoulder_input_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_15 -->
+            <geom type="mesh" class="visual" pos="0.020175 -0.0345242 -0.0774462" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="0.020175 -0.0345242 -0.0774462" quat="1.41117e-16 0.707107 1.11022e-16 0.707107" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part 90630a115_high_strength_steel_nylon_insert_locknut -->
+            <geom type="mesh" class="visual" pos="0.020045 -1.71684e-16 -0.3736" quat="0.707107 -7.83543e-16 7.49401e-16 -0.707107" mesh="90630a115_high_strength_steel_nylon_insert_locknut" material="90630a115_high_strength_steel_nylon_insert_locknut_material"/>
+            <geom type="mesh" class="collision" pos="0.020045 -1.71684e-16 -0.3736" quat="0.707107 -7.83543e-16 7.49401e-16 -0.707107" mesh="90630a115_high_strength_steel_nylon_insert_locknut" material="90630a115_high_strength_steel_nylon_insert_locknut_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_5 -->
+            <geom type="mesh" class="visual" pos="-0.027475 -0.0119979 -0.065378" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <geom type="mesh" class="collision" pos="-0.027475 -0.0119979 -0.065378" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_16 -->
+            <geom type="mesh" class="visual" pos="-0.026525 0.0345239 -0.0774471" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 0.0345239 -0.0774471" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_5 -->
+            <geom type="mesh" class="visual" pos="-0.006 0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <geom type="mesh" class="collision" pos="-0.006 0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <!-- Part mock_flanged_ball_bearing -->
+            <geom type="mesh" class="visual" pos="0.017175 -1.73935e-16 -0.3736" quat="0.707107 -3.73394e-18 0.707107 -1.11022e-16" mesh="mock_flanged_ball_bearing" material="mock_flanged_ball_bearing_material"/>
+            <geom type="mesh" class="collision" pos="0.017175 -1.73935e-16 -0.3736" quat="0.707107 -3.73394e-18 0.707107 -1.11022e-16" mesh="mock_flanged_ball_bearing" material="mock_flanged_ball_bearing_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_17 -->
+            <geom type="mesh" class="visual" pos="-0.026525 0.0176621 -0.0336579" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 0.0176621 -0.0336579" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_4 -->
+            <geom type="mesh" class="visual" pos="-0.003825 0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <geom type="mesh" class="collision" pos="-0.003825 0.03325 -0.0257" quat="1.12079e-16 -1 -4.93038e-32 -5.4496e-32" mesh="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf" material="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material"/>
+            <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_10 -->
+            <geom type="mesh" class="visual" pos="-0.003825 -0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <geom type="mesh" class="collision" pos="-0.003825 -0.03325 -0.0088" quat="1 2.66524e-17 -1.11022e-16 -3.58099e-17" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+            <!-- Part rs01_sim_2 -->
+            <geom type="mesh" class="visual" pos="0.010825 2.54423e-17 -0.0656" quat="1.52251e-16 0.707107 0 -0.707107" mesh="rs01_sim" material="rs01_sim_material"/>
+            <geom type="mesh" class="collision" pos="0.010825 2.54423e-17 -0.0656" quat="1.52251e-16 0.707107 0 -0.707107" mesh="rs01_sim" material="rs01_sim_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_18 -->
+            <geom type="mesh" class="visual" pos="-0.026525 0.0188316 -0.0968669" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 0.0188316 -0.0968669" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_6 -->
+            <geom type="mesh" class="visual" pos="-0.027475 -0.00619122 -0.0758795" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <geom type="mesh" class="collision" pos="-0.027475 -0.00619122 -0.0758795" quat="0.5 -0.5 -0.5 0.5" mesh="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab" material="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material"/>
+            <!-- Part hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_19 -->
+            <geom type="mesh" class="visual" pos="-0.026525 -0.00700204 -0.0297779" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <geom type="mesh" class="collision" pos="-0.026525 -0.00700204 -0.0297779" quat="0.707107 -1.41117e-16 -0.707107 6.66134e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34" material="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material"/>
+            <!-- Part mock_flanged_ball_bearing_2 -->
+            <geom type="mesh" class="visual" pos="-0.023525 6.52868e-17 -0.3736" quat="8.90649e-17 -0.707107 -2.22045e-16 0.707107" mesh="mock_flanged_ball_bearing" material="mock_flanged_ball_bearing_material"/>
+            <geom type="mesh" class="collision" pos="-0.023525 6.52868e-17 -0.3736" quat="8.90649e-17 -0.707107 -2.22045e-16 0.707107" mesh="mock_flanged_ball_bearing" material="mock_flanged_ball_bearing_material"/>
+            <!-- Part hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_6 -->
+            <geom type="mesh" class="visual" pos="-0.006 -0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <geom type="mesh" class="collision" pos="-0.006 -0.0103923 -0.01615" quat="0 1 0 0" mesh="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e" material="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material"/>
+            <!-- Link shaft_v2 -->
+            <body name="body_4" pos="-0.018445 1.01653e-16 -0.3736" quat="0.5 0.5 -0.5 -0.5">
+              <!-- Joint from shoulder_input_bracket to shaft_v2 -->
+              <joint name="J4" type="hinge" range="-0.9599310885968813 3.141592653589793"/>
+              <inertial pos="-0.155647 -0.0383048 -0.0107578" mass="0.911596" fullinertia="0.000950197 0.0211834 0.0214531 -0.00151656 -0.000656717 -0.000161909"/>
+              <!-- Part ball_end_effector -->
+              <geom type="mesh" class="visual" pos="0.174662 -0.350597 -0.029395" quat="0.627211 0.627211 -0.326506 -0.326506" mesh="ball_end_effector" material="ball_end_effector_material"/>
+              <geom type="mesh" class="collision" pos="0.174662 -0.350597 -0.029395" quat="0.627211 0.627211 -0.326506 -0.326506" mesh="ball_end_effector" material="ball_end_effector_material"/>
+              <!-- Part tube_end_effector_adapter -->
+              <geom type="mesh" class="visual" pos="0.176662 -0.0631491 0.286053" quat="0.887011 -5.88237e-17 -0.461749 -4.44089e-16" mesh="tube_end_effector_adapter" material="tube_end_effector_adapter_material"/>
+              <geom type="mesh" class="collision" pos="0.176662 -0.0631491 0.286053" quat="0.887011 -5.88237e-17 -0.461749 -4.44089e-16" mesh="tube_end_effector_adapter" material="tube_end_effector_adapter_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_11 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0651491 -0.03562" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0651491 -0.03562" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_17 -->
+              <geom type="mesh" class="visual" pos="-0.120115 -0.0491491 -0.051395" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.120115 -0.0491491 -0.051395" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_18 -->
+              <geom type="mesh" class="visual" pos="-0.00972743 0.00681122 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.00972743 0.00681122 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part wrist_v2 -->
+              <geom type="mesh" class="visual" pos="0.176662 0.252299 -0.00127" quat="0.627211 -0.627211 -0.326506 0.326506" mesh="wrist_v2" material="wrist_v2_material"/>
+              <geom type="mesh" class="collision" pos="0.176662 0.252299 -0.00127" quat="0.627211 -0.627211 -0.326506 0.326506" mesh="wrist_v2" material="wrist_v2_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403 -->
+              <geom type="mesh" class="visual" pos="-0.0844146 -0.0491491 -0.00092" quat="0.887011 -3.53313e-15 -6.55032e-15 -0.461749" mesh="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403" material="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403_material"/>
+              <geom type="mesh" class="collision" pos="-0.0844146 -0.0491491 -0.00092" quat="0.887011 -3.53313e-15 -6.55032e-15 -0.461749" mesh="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403" material="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_12 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0331491 -0.03562" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0331491 -0.03562" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_19 -->
+              <geom type="mesh" class="visual" pos="-0.120115 -0.0179722 0.002605" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.120115 -0.0179722 0.002605" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_13 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0331491 0.00508" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0331491 0.00508" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0651491 -0.03587" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0651491 -0.03587" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_20 -->
+              <geom type="mesh" class="visual" pos="-0.00103497 -0.0118298 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.00103497 -0.0118298 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_14 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0331491 -0.004045" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0331491 -0.004045" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part tube_end_effector -->
+              <geom type="mesh" class="visual" pos="-0.727691 -0.350597 -0.001395" quat="0.326506 -0.326506 0.627211 -0.627211" mesh="tube_end_effector" material="tube_end_effector_material"/>
+              <geom type="mesh" class="collision" pos="-0.727691 -0.350597 -0.001395" quat="0.326506 -0.326506 0.627211 -0.627211" mesh="tube_end_effector" material="tube_end_effector_material"/>
+              <!-- Part wrist_adapter -->
+              <geom type="mesh" class="visual" pos="0.176662 -0.350597 -0.029395" quat="0.627211 0.627211 -0.326506 -0.326506" mesh="wrist_adapter" material="wrist_adapter_material"/>
+              <geom type="mesh" class="collision" pos="0.176662 -0.350597 -0.029395" quat="0.627211 0.627211 -0.326506 -0.326506" mesh="wrist_adapter" material="wrist_adapter_material"/>
+              <!-- Part trapezoidal_spacer_complidant_side -->
+              <geom type="mesh" class="visual" pos="0.252299 -0.176662 -0.00127" quat="0.67438 -0.67438 0.212631 -0.212631" mesh="trapezoidal_spacer_complidant_side" material="trapezoidal_spacer_complidant_side_material"/>
+              <geom type="mesh" class="collision" pos="0.252299 -0.176662 -0.00127" quat="0.67438 -0.67438 0.212631 -0.212631" mesh="trapezoidal_spacer_complidant_side" material="trapezoidal_spacer_complidant_side_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_2 -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0651491 -0.004045" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0651491 -0.004045" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_21 -->
+              <geom type="mesh" class="visual" pos="-0.120115 -0.0179722 -0.033395" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.120115 -0.0179722 -0.033395" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_15 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0331491 -0.026495" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0331491 -0.026495" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part shaft_v2 -->
+              <geom type="mesh" class="visual" pos="0.308 0 -0.00127" quat="0.707107 -0.707107 0 -3.41712e-48" mesh="shaft_v2" material="shaft_v2_material"/>
+              <geom type="mesh" class="collision" pos="0.308 0 -0.00127" quat="0.707107 -0.707107 0 -3.41712e-48" mesh="shaft_v2" material="shaft_v2_material"/>
+              <!-- Part wrist_bracket_1 -->
+              <geom type="mesh" class="visual" pos="0.176662 0.252299 -0.001145" quat="0.627211 -0.627211 -0.326506 0.326506" mesh="wrist_bracket_1" material="wrist_bracket_1_material"/>
+              <geom type="mesh" class="collision" pos="0.176662 0.252299 -0.001145" quat="0.627211 -0.627211 -0.326506 0.326506" mesh="wrist_bracket_1" material="wrist_bracket_1_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_16 -->
+              <geom type="mesh" class="visual" pos="-0.0724146 -0.0491491 -0.02782" quat="1.93214e-17 0.887011 0.461749 -1.35438e-18" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0724146 -0.0491491 -0.02782" quat="1.93214e-17 0.887011 0.461749 -1.35438e-18" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part belt_cap -->
+              <geom type="mesh" class="visual" pos="-3.32398e-18 0.308 -0.003175" quat="0.5 -0.5 -0.5 0.5" mesh="belt_cap" material="belt_cap_material"/>
+              <geom type="mesh" class="collision" pos="-3.32398e-18 0.308 -0.003175" quat="0.5 -0.5 -0.5 0.5" mesh="belt_cap" material="belt_cap_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_17 -->
+              <geom type="mesh" class="visual" pos="-0.0844146 -0.0491491 -0.02782" quat="1.93214e-17 0.887011 0.461749 -1.35438e-18" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0844146 -0.0491491 -0.02782" quat="1.93214e-17 0.887011 0.461749 -1.35438e-18" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_22 -->
+              <geom type="mesh" class="visual" pos="0.0107624 0.00501859 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="0.0107624 0.00501859 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_3 -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0331491 -0.004045" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0331491 -0.004045" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_23 -->
+              <geom type="mesh" class="visual" pos="-0.0107624 -0.00501859 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.0107624 -0.00501859 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_24 -->
+              <geom type="mesh" class="visual" pos="-0.120115 -0.0491491 0.020605" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.120115 -0.0491491 0.020605" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403_2 -->
+              <geom type="mesh" class="visual" pos="-0.0724146 -0.0491491 -0.00092" quat="0.887011 -3.53313e-15 -6.55032e-15 -0.461749" mesh="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403" material="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403_material"/>
+              <geom type="mesh" class="collision" pos="-0.0724146 -0.0491491 -0.00092" quat="0.887011 -3.53313e-15 -6.55032e-15 -0.461749" mesh="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403" material="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403_material"/>
+              <!-- Part 90630a115_high_strength_steel_nylon_insert_locknut_2 -->
+              <geom type="mesh" class="visual" pos="-1.36651e-17 0 0.030175" quat="0.707107 0.707107 1.66533e-15 -1.83505e-15" mesh="90630a115_high_strength_steel_nylon_insert_locknut" material="90630a115_high_strength_steel_nylon_insert_locknut_material"/>
+              <geom type="mesh" class="collision" pos="-1.36651e-17 0 0.030175" quat="0.707107 0.707107 1.66533e-15 -1.83505e-15" mesh="90630a115_high_strength_steel_nylon_insert_locknut" material="90630a115_high_strength_steel_nylon_insert_locknut_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_25 -->
+              <geom type="mesh" class="visual" pos="0.00103497 0.0118298 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="0.00103497 0.0118298 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_4 -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0331491 -0.026745" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0331491 -0.026745" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_18 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0651491 -0.004045" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0651491 -0.004045" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part wrist_bracket_1_2 -->
+              <geom type="mesh" class="visual" pos="0.176662 -0.350597 -0.029395" quat="0.627211 0.627211 -0.326506 -0.326506" mesh="wrist_bracket_1" material="wrist_bracket_1_material"/>
+              <geom type="mesh" class="collision" pos="0.176662 -0.350597 -0.029395" quat="0.627211 0.627211 -0.326506 -0.326506" mesh="wrist_bracket_1" material="wrist_bracket_1_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_5 -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0651491 0.00508" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0651491 0.00508" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_26 -->
+              <geom type="mesh" class="visual" pos="-0.120115 -0.080326 -0.033395" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.120115 -0.080326 -0.033395" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_27 -->
+              <geom type="mesh" class="visual" pos="-0.120115 -0.080326 0.002605" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="-0.120115 -0.080326 0.002605" quat="0.707107 -1.59894e-16 -0.707107 -7.77156e-16" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_6 -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0331491 0.00508" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0331491 0.00508" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_28 -->
+              <geom type="mesh" class="visual" pos="0.00972743 -0.00681122 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <geom type="mesh" class="collision" pos="0.00972743 -0.00681122 -0.02152" quat="1.596e-17 -0.887011 -0.461749 2.11439e-17" mesh="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d" material="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_7 -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0331491 -0.03587" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0331491 -0.03587" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part output_pulley -->
+              <geom type="mesh" class="visual" pos="-7.80053e-18 0.308 -0.002675" quat="0.5 -0.5 -0.5 0.5" mesh="output_pulley" material="output_pulley_material"/>
+              <geom type="mesh" class="collision" pos="-7.80053e-18 0.308 -0.002675" quat="0.5 -0.5 -0.5 0.5" mesh="output_pulley" material="output_pulley_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_19 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0651491 -0.026495" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0651491 -0.026495" quat="0.5 0.5 0.5 0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Part hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_8 -->
+              <geom type="mesh" class="visual" pos="-0.0981146 -0.0651491 -0.026745" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0981146 -0.0651491 -0.026745" quat="0.5 0.5 -0.5 -0.5" mesh="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c" material="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material"/>
+              <!-- Part hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_20 -->
+              <geom type="mesh" class="visual" pos="-0.0902146 -0.0651491 0.00508" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <geom type="mesh" class="collision" pos="-0.0902146 -0.0651491 0.00508" quat="0.5 -0.5 0.5 -0.5" mesh="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c" material="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material"/>
+              <!-- Frame endeff -->
+              <site group="0" name="endeff" pos="-0.473915 -0.0491491 -0.015395" quat="0.5 0.5 -0.5 0.5"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <asset>
+    <mesh file="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c.stl"/>
+    <mesh file="rs03_bridge_bracket_spacer.stl"/>
+    <mesh file="tubes.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c.stl"/>
+    <mesh file="output_pulley.stl"/>
+    <mesh file="rs02_sim.stl"/>
+    <mesh file="tube_end_effector.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403.stl"/>
+    <mesh file="input_shaft_pulley_coupler.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf.stl"/>
+    <mesh file="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385.stl"/>
+    <mesh file="m3_to_bearing_bracket.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d.stl"/>
+    <mesh file="wrist_bracket_1.stl"/>
+    <mesh file="90630a115_high_strength_steel_nylon_insert_locknut.stl"/>
+    <mesh file="shaft_v2.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d.stl"/>
+    <mesh file="wrist_adapter.stl"/>
+    <mesh file="battery_mount_body__configuration_default.stl"/>
+    <mesh file="j3_support_bearing_structure.stl"/>
+    <mesh file="secondary_plate.stl"/>
+    <mesh file="anti_deflection_support.stl"/>
+    <mesh file="shoulder_input_bracket.stl"/>
+    <mesh file="tube_end_effector_adapter.stl"/>
+    <mesh file="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c.stl"/>
+    <mesh file="rs03_sim.stl"/>
+    <mesh file="ball_end_effector.stl"/>
+    <mesh file="trapezoidal_spacer_complidant_side.stl"/>
+    <mesh file="shoulder_input.stl"/>
+    <mesh file="head_mount_v2.stl"/>
+    <mesh file="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab.stl"/>
+    <mesh file="main_shoulder_bracket.stl"/>
+    <mesh file="battery_mount_cover__configuration_default.stl"/>
+    <mesh file="m3_to_m2_bracket.stl"/>
+    <mesh file="main_plate.stl"/>
+    <mesh file="wrist_v2.stl"/>
+    <mesh file="rs01_sim.stl"/>
+    <mesh file="belt_cap.stl"/>
+    <mesh file="mock_battery__configuration_default.stl"/>
+    <mesh file="mock_flanged_ball_bearing.stl"/>
+    <mesh file="input_pulley.stl"/>
+    <material name="head_mount_v2_material" rgba="0.972549 0.529412 0.00392157 1"/>
+    <material name="battery_mount_body__configuration_default_material" rgba="0.231373 0.380392 0.705882 1"/>
+    <material name="hex_socket_head_cap_screw_m5x0_80_x_50__8b083fbfd59dc714165a15409b668a30_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="mock_battery__configuration_default_material" rgba="0.972549 0.529412 0.00392157 1"/>
+    <material name="hex_socket_head_cap_screw_m6x1_00_x_60__a443ccf6f0c2f8dc713a8e15307ebd58_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="tubes_material" rgba="0.498039 0.498039 0.498039 1"/>
+    <material name="battery_mount_cover__configuration_default_material" rgba="0.498039 0.498039 0.498039 1"/>
+    <material name="rs01_sim_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="rs03_sim_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="hex_socket_head_cap_screw_m4x0_70_x_10__3f64a2339dcfbc0ea5d2cebc7d371b7c_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="main_shoulder_bracket_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="j3_support_bearing_structure_material" rgba="0.529412 0.568627 0.6 1"/>
+    <material name="hex_socket_head_cap_screw_m3x0_50_x_14__4b1458786ed83667bf236981c19e652d_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="hex_head_screw_grade_a___b_m3x0_50_x_16__7790165adf9f89e86107e5bb6cdc8385_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="hex_nut_grade_a___b_m3x0_5__efee9957898a49f0fc3bee2ce194c05c_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="m3_to_m2_bracket_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="rs02_sim_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="rs03_bridge_bracket_spacer_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="m3_to_bearing_bracket_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="hex_socket_head_cap_screw_m3x0_50_x_12__42178f5eed9000eec67db91605b75f34_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="hex_socket_head_cap_screw_m3x0_50_x_16__ac958a28b2a0cd32159ce84378065ccf_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="main_plate_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="hex_socket_head_cap_screw_m4x0_70_x_20__832e47d784177ea3f1dabbaab534416e_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="shoulder_input_bracket_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="secondary_plate_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="hex_socket_head_cap_screw_m3x0_50_x_40_x_18__b89d8d3b5b06642d585fdb132cd2ae7d_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="hex_socket_head_cap_screw_m4x0_70_x_6__f66dbcfc8393ce0fec8473af389d54ab_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="input_shaft_pulley_coupler_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="anti_deflection_support_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="input_pulley_material" rgba="0.917647 0.917647 0.917647 1"/>
+    <material name="shoulder_input_material" rgba="0.768627 0.886275 0.952941 1"/>
+    <material name="90630a115_high_strength_steel_nylon_insert_locknut_material" rgba="0.980392 0.713725 0.00392157 1"/>
+    <material name="mock_flanged_ball_bearing_material" rgba="0.529412 0.568627 0.6 1"/>
+    <material name="ball_end_effector_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="tube_end_effector_adapter_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="wrist_v2_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="hex_socket_head_cap_screw_m3x0_50_x_25__e4c7bcc9e282bb299af9818127073403_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="hex_socket_head_cap_screw_m3x0_50_x_8__d566997e1880d7fd3377c5b0ee12206c_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="tube_end_effector_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="wrist_adapter_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="trapezoidal_spacer_complidant_side_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="shaft_v2_material" rgba="0.647059 0.647059 0.647059 1"/>
+    <material name="wrist_bracket_1_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="belt_cap_material" rgba="0.615686 0.811765 0.929412 1"/>
+    <material name="output_pulley_material" rgba="0.752941 0.752941 0.752941 1"/>
+  </asset>
+  <actuator>
+    <motor class="Sim_Arm_4DOF_Mar_25" name="J1" joint="J1" ctrllimited="true" ctrlrange="-6 6"/>
+    <motor class="Sim_Arm_4DOF_Mar_25" name="J2" joint="J2" ctrllimited="true" ctrlrange="-20 20"/>
+    <motor class="Sim_Arm_4DOF_Mar_25" name="J3" joint="J3" ctrllimited="true" ctrlrange="-6 6"/>
+    <motor class="Sim_Arm_4DOF_Mar_25" name="J4" joint="J4" ctrllimited="true" ctrlrange="-18 18"/>
+  </actuator>
+  <equality/>
+</mujoco>

@@ -96,7 +96,13 @@ class Controller6dof:
         self.K2 = (2/pow(self.T,2))*(self.T*self.K1-1+pow(gammaR,2))
         # Estimator
         self.L1 = 2*(1-gammaE)
-        self.L2 = (1/self.T)*(-1+self.L1+pow(gammaE,2)) 
+        self.L2 = (1/self.T)*(-1+self.L1+pow(gammaE,2))
+
+        print("This is K1 : ", self.K1)
+        print("This is K2 : ", self.K2)
+        print("This is K1 : ", self.L1)
+        print("This is K2 : ", self.L2)
+
 
 
     def updateDynamicMatrices(self):
