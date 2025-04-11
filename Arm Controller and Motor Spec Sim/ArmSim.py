@@ -21,7 +21,7 @@ os.system("cls")
 #xml_path = '131-1x3-none/sim_arm_131-1x3-none.xml' #xml file (assumes this is in the same folder as this file)
 # xml_path = '4dof_arm_v2/4dof_arm_v2.xml' #xml file (assumes this is in the same folder as this file)
 xml_path = 'Sim_Arm_4DOF_Mar_25/robot.xml'
-simend = 15 #simulation time
+simend = 60 # simulation time
 print_camera_config = 0 #set to 1 to print camera config
                         #this is useful for initializing view of the model)
 
@@ -41,18 +41,26 @@ opt = mj.MjvOption()                        # visualization options
 #############################
 
 # Declare Controller
-#armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
+# armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
 armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 10, False)
 
 # Set Trajectory
 # 4-DOF Bot Example
-armController.traj.addLinearMove_3dof(np.array([0, 0.2, -0.6]), 2)
-armController.traj.addLinearMove_3dof(np.array([0, 0.2, 0.7]), 2)
-armController.traj.addLinearMove_3dof(np.array([0, 0.7, 0.2]), 2)
-armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
-armController.traj.addLinearMove_3dof(np.array([0.6, 0.3, 0.1]), 2)
-armController.traj.addLinearMove_3dof(np.array([-0.6, 0.3, 0.1]), 2)
-armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
+radius = 0.3
+circle_start = np.array([0.0, 0.2, 0]) # 
+
+
+
+armController.traj.addLinearMove_3dof(circle_start, 1)
+
+armController.traj.trace_circle(radius, 10)
+
+# armController.traj.addLinearMove_3dof(np.array([0, 0.2, 0.7]), 2)
+# armController.traj.addLinearMove_3dof(np.array([0, 0.7, 0.2]), 2)
+# armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
+# armController.traj.addLinearMove_3dof(np.array([0.6, 0.3, 0.1]), 2)
+# armController.traj.addLinearMove_3dof(np.array([-0.6, 0.3, 0.1]), 2)
+# armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
 # 6-DOF Bot Example
 #armController.traj.addLinearMove_6dof(np.array([0, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
 #armController.traj.addLinearMove_6dof(np.array([0, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)

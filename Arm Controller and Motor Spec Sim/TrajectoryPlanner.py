@@ -130,7 +130,6 @@ class TrajectoryPlanner6dof:
             for i in range(numPoints):
                 t = i/self.pps
                 localTaskSpaceTraj[i,coord] = startPos[coord] + c3*math.pow(t,3) + c4*math.pow(t,4) + c5*math.pow(t,5)
-
         # Generate Joint Trajectory
         localJointSpaceTraj = np.zeros((numPoints, self.numJoints))
 
@@ -138,6 +137,74 @@ class TrajectoryPlanner6dof:
         for i in range(numPoints):
             # Separate Out Position
             pos = localTaskSpaceTraj[i, 0:3]
+            # Calculate Inverse Position Kinematics and Load Into Array
+            qpos = self.ik.solveIK_3dof(pos)
+            for joint in range(self.numJoints):
+                localJointSpaceTraj[i, joint] = qpos[joint]
+            # Update Starting Point for Good Convergence
+            self.data.qpos = qpos
+            mj.mj_forward(self.model, self.data)
+
+        # Add Motion to Master Trajectory
+        self.taskSpaceTraj = np.concatenate((self.taskSpaceTraj, localTaskSpaceTraj[1:,:]))
+        self.jointSpaceTraj = np.concatenate((self.jointSpaceTraj, localJointSpaceTraj[1:,:]))
+        self.totalTime = self.totalTime + duration
+        tempTimeArr = np.add(self.timeArr[-1], np.linspace(0, duration, numPoints))
+        self.timeArr = np.concatenate((self.timeArr, tempTimeArr[1:]))
+
+        self.generateReferences()
+    
+    def trace_circle(self, radius, duration):
+        # Number of Points in Trajectory
+        numPoints = duration*self.pps+1
+        
+        # Trajectory Start
+        startPos = self.taskSpaceTraj[-1,:3]
+        startOrient = self.taskSpaceTraj[-1, 3:]
+
+        # Generate Quintic Task Space Trajectory
+        localTaskSpaceTraj = np.zeros((numPoints, 7))
+
+        offset = np.array([0, 0, radius])
+        print("this is the starting position of the robto : ", startPos)
+        center = startPos.copy() + offset
+        print("This is the center of ther robot : ", center)
+        theta = np.linspace(-np.pi / 2, 1.5*np.pi, numPoints)
+
+        for i, angle in enumerate(theta):
+            # Define the circle in the XZ plane; y remains constant.
+            localTaskSpaceTraj[i, 0] = center[0] + radius * np.cos(angle)  # x 
+            localTaskSpaceTraj[i, 1] = center[1]
+            localTaskSpaceTraj[i, 2] = center[2] + radius * np.sin(angle)  # z
+            if i == 50:
+                next_point = np.array([center[0] + radius * np.cos(angle), center[1],  center[2] + radius * np.sin(angle) ])
+                
+            # Keep the orientation constant (same as starting orientation)
+            localTaskSpaceTraj[i, 3:] = startOrient
+
+        # Setup
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        ax.plot(localTaskSpaceTraj[:, 0], localTaskSpaceTraj[:, 1], localTaskSpaceTraj[:, 2], label="Task Space Circle")
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
+        ax.set_title('Task Space Circular Trajectory (XZ Plane)')
+        # Add starting point (red)
+        ax.scatter(startPos[0], startPos[1], startPos[2], color='red', s=50, label="Start Position")
+        # Add center point (green)
+        ax.scatter(center[0], center[1], center[2], color='green', s=50, label="Circle Center")
+        ax.scatter(next_point[0], next_point[1], next_point[2], s=50, label='Next point')
+        ax.legend()
+        plt.show()
+
+        # Generate Joint Trajectory
+        localJointSpaceTraj = np.zeros((numPoints, self.numJoints))
+
+        # Do Inverse Kinematics
+        for i in range(numPoints):
+            # Separate Out Position
+            pos = localTaskSpaceTraj[i, :3]
             # Calculate Inverse Position Kinematics and Load Into Array
             qpos = self.ik.solveIK_3dof(pos)
             for joint in range(self.numJoints):
@@ -204,7 +271,6 @@ class TrajectoryPlanner6dof:
 
     
     def plotJoints(self, motorSpecs=None):
-        # Setup
         rpm_to_rads = 0.1047
         fig, axs = self.plt.subplots(6, self.numJoints, figsize=(15, 10))
         fig.suptitle("Joint Trajectories", fontsize=16)
