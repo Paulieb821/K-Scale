@@ -2,6 +2,8 @@ import mujoco as mj
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
 from NRIK import NRIK as ik
 
 # --- Angle Key ---
@@ -53,6 +55,7 @@ class TrajectoryPlanner6dof:
         self.estVel = np.zeros([0, self.numJoints])
         self.realAcc = np.zeros([0, self.numJoints])
         self.realTorque = np.zeros([0, self.numJoints])
+        self.endEffPos = np.zeros([0, 3])
         # Points per Second
         self.pps = pointsPerSecond
         # Keep Track of Path Time
@@ -166,9 +169,7 @@ class TrajectoryPlanner6dof:
         localTaskSpaceTraj = np.zeros((numPoints, 7))
 
         offset = np.array([0, 0, radius])
-        print("this is the starting position of the robto : ", startPos)
         center = startPos.copy() + offset
-        print("This is the center of ther robot : ", center)
         theta = np.linspace(-np.pi / 2, 1.5*np.pi, numPoints)
 
         for i, angle in enumerate(theta):
@@ -176,28 +177,9 @@ class TrajectoryPlanner6dof:
             localTaskSpaceTraj[i, 0] = center[0] + radius * np.cos(angle)  # x 
             localTaskSpaceTraj[i, 1] = center[1]
             localTaskSpaceTraj[i, 2] = center[2] + radius * np.sin(angle)  # z
-            if i == 50:
-                next_point = np.array([center[0] + radius * np.cos(angle), center[1],  center[2] + radius * np.sin(angle) ])
                 
             # Keep the orientation constant (same as starting orientation)
-            localTaskSpaceTraj[i, 3:] = startOrient
-
-        # Setup
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-        ax.plot(localTaskSpaceTraj[:, 0], localTaskSpaceTraj[:, 1], localTaskSpaceTraj[:, 2], label="Task Space Circle")
-        ax.set_xlabel('X')
-        ax.set_ylabel('Y')
-        ax.set_zlabel('Z')
-        ax.set_title('Task Space Circular Trajectory (XZ Plane)')
-        # Add starting point (red)
-        ax.scatter(startPos[0], startPos[1], startPos[2], color='red', s=50, label="Start Position")
-        # Add center point (green)
-        ax.scatter(center[0], center[1], center[2], color='green', s=50, label="Circle Center")
-        ax.scatter(next_point[0], next_point[1], next_point[2], s=50, label='Next point')
-        ax.legend()
-        plt.show()
-
+            # localTaskSpaceTraj[i, 3:] = startOrient  # uncomment for 6 dof
         # Generate Joint Trajectory
         localJointSpaceTraj = np.zeros((numPoints, self.numJoints))
 
@@ -225,7 +207,7 @@ class TrajectoryPlanner6dof:
     # Hold a Position for a Set Amount of Time
     def addHold(self, duration):
         # Number of Points in Trajectory
-        numPoints = duration*self.pps+1
+        numPoints = duration * self.pps + 1
 
         # Load Task Space Trajectories
         localTaskSpaceTraj = np.zeros((numPoints, 7))
@@ -271,7 +253,57 @@ class TrajectoryPlanner6dof:
 
     
     def plotJoints(self, motorSpecs=None):
+
+        import matplotlib.pyplot as plt
         rpm_to_rads = 0.1047
+        fig, axs = plt.subplots(3, 1, figsize=(10, 8), sharex=True)
+
+        # X-axis
+        axs[0].plot(self.taskSpaceTraj[:, 0], label='X Reference', linestyle='--')
+        axs[0].plot(self.endEffPos[:, 0], label='X Actuator')
+        axs[0].set_ylabel('X Position')
+        axs[0].legend()
+        axs[0].grid(True)
+
+        # Y-axis
+        axs[1].plot(self.taskSpaceTraj[:, 1], label='Y Reference', linestyle='--')
+        axs[1].plot(self.endEffPos[:, 1], label='Y Actuator')
+        axs[1].set_ylabel('Y Position')
+        axs[1].legend()
+        axs[1].grid(True)
+
+        # Z-axis
+        axs[2].plot(self.taskSpaceTraj[:, 2], label='Z Reference', linestyle='--')
+        axs[2].plot(self.endEffPos[:, 2], label='Z Actuator')
+        axs[2].set_ylabel('Z Position')
+        axs[2].set_xlabel('Trajectory Step')
+        axs[2].legend()
+        axs[2].grid(True)
+
+        fig.suptitle('End Effector Trajectory Tracking (X, Y, Z)')
+        plt.tight_layout()
+        plt.show()
+
+        fig = plt.figure(figsize=(10, 8))
+        ax = fig.add_subplot(111, projection='3d')
+
+        # Plot actual trajectory
+        ax.plot(self.endEffPos[:, 0], self.endEffPos[:, 1], self.endEffPos[:, 2], label='End Effector Position')
+
+        # Plot reference trajectory
+        ax.plot(self.taskSpaceTraj[:, 0], self.taskSpaceTraj[:, 1], self.taskSpaceTraj[:, 2], linestyle='--', label='Reference Trajectory')
+        ax.scatter(self.taskSpaceTraj[0, 0], self.taskSpaceTraj[0, 1], self.taskSpaceTraj[0, 2], color='red', s=50, label='Start Position')
+
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_zlabel('Z')
+        ax.set_title('End Effector Trajectory Tracking (3D)')
+        ax.legend()
+        ax.grid(True)
+
+        plt.tight_layout()
+        plt.show()
+
         fig, axs = self.plt.subplots(6, self.numJoints, figsize=(15, 10))
         fig.suptitle("Joint Trajectories", fontsize=16)
         # Joints

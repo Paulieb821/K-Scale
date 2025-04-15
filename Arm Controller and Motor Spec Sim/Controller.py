@@ -7,7 +7,7 @@ from TrajectoryPlanner import TrajectoryPlanner6dof as traj
 class Controller6dof:
 
     #def __init__(self, urdfAddress, initialPose, updateFreq, pole):
-    def __init__(self, urdfAddress, site, initialPose, updateFreq, pole, calledAtRegInteval):
+    def __init__(self, urdfAddress, site ="endeff", initialPose=[0, 0, 0, 0], updateFreq=100, pole=10, calledAtRegInteval=False):
         # Set Up UDRF
         urdf_path = urdfAddress
         dirname = os.path.dirname(__file__)
@@ -42,7 +42,6 @@ class Controller6dof:
     def createTrajectory(self):
         return traj(self.model, self.data, self.site, self.data.qpos, self.updateFreq)
     
-
     def trajectoryFollower(self, encoderVals, time = None):
         # Make Sure Function is Being Used Right
         if self.calledAtRegInterval == False and time == None:
@@ -98,10 +97,10 @@ class Controller6dof:
         self.L1 = 2*(1-gammaE)
         self.L2 = (1/self.T)*(-1+self.L1+pow(gammaE,2))
 
-        print("This is K1 : ", self.K1)
-        print("This is K2 : ", self.K2)
-        print("This is K1 : ", self.L1)
-        print("This is K2 : ", self.L2)
+        print("This is regulator Kp : ", self.K1)
+        print("This is regulator Kd : ", self.K2)
+        print("This is estimator Kp: ", self.L1)
+        print("This is estimator Kd: ", self.L2)
 
 
 

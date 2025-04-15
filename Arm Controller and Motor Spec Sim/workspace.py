@@ -7,11 +7,9 @@ model = mujoco.MjModel.from_xml_path(r"C:\Users\aksha\Downloads\Github\K-Scale\A
 data = mujoco.MjData(model)
 
 # --- Site name of the end-effector ---
-site_name = "endeff"  # Replace with your actual site name
-
-# --- Find site ID using mujoco API ---
-# Get all site names from the model
+site_name = "endeff"  
 site_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SITE, site_name)
+
 print("This is the site id : ", site_id)
 if site_id == -1:
     raise ValueError(f"Site '{site_name}' not found in the model")

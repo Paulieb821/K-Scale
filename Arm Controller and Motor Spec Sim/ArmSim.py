@@ -34,26 +34,29 @@ model = mj.MjModel.from_xml_path(abspath)  # MuJoCo model
 data = mj.MjData(model)                     # MuJoCo data
 cam = mj.MjvCamera()                        # Abstract camera
 opt = mj.MjvOption()                        # visualization options
-
+site_name = "endeff"  
+site_id = mj.mj_name2id(model, mj.mjtObj.mjOBJ_SITE, site_name)
+print("Before step:", data.site_xpos[site_id])  # likely [0, 0, 0]
+mj.mj_step(model, data)
+print("After step:", data.site_xpos[site_id])   # should now be real position
 
 #############################
 # Controller and Trajectory #
-#############################
+#############################   
 
 # Declare Controller
 # armController = ctrl(xml_path, "endeff", [-math.pi, -math.pi/3, -math.pi/3, 0.0, 0.0, 0.0], 100, 10, False)
-armController = ctrl(xml_path, "endeff", [0.0, 0.0, 0.0, 0.0], 100, 10, False)
+armController = ctrl(xml_path, site="endeff", initialPose=[0.0, 0.0, 0.0, 0.0], updateFreq=1000, pole=10, calledAtRegInteval=False)
 
 # Set Trajectory
 # 4-DOF Bot Example
 radius = 0.3
-circle_start = np.array([0.0, 0.2, 0]) # 
+circle_start = np.array([0.0, 0.35, 0]) # 
 
 
+armController.traj.addLinearMove_3dof(circle_start, 2)
+armController.traj.trace_circle(radius, 5)
 
-armController.traj.addLinearMove_3dof(circle_start, 1)
-
-armController.traj.trace_circle(radius, 10)
 
 # armController.traj.addLinearMove_3dof(np.array([0, 0.2, 0.7]), 2)
 # armController.traj.addLinearMove_3dof(np.array([0, 0.7, 0.2]), 2)
@@ -61,6 +64,7 @@ armController.traj.trace_circle(radius, 10)
 # armController.traj.addLinearMove_3dof(np.array([0.6, 0.3, 0.1]), 2)
 # armController.traj.addLinearMove_3dof(np.array([-0.6, 0.3, 0.1]), 2)
 # armController.traj.addLinearMove_3dof(np.array([0, 0.4, 0.4]), 2)
+
 # 6-DOF Bot Example
 #armController.traj.addLinearMove_6dof(np.array([0, 0.4, -0.2]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
 #armController.traj.addLinearMove_6dof(np.array([0, 0.4, 0.4]), np.array([[-1, 0, 0], [0, 0, 1], [0, 1, 0]]) , 1)
@@ -81,26 +85,29 @@ def init_controller(model,data):
     # Set Arm Initial Point
     data.qpos = armController.xhat
     mj.mj_forward(model, data)
-    
-def controller(model, data): 
+
+
+
+def controller(model, data):
         # Control Signal
         data.qfrc_applied = armController.trajectoryFollower(data.qpos, data.time)
 
         # Logging
-        if(data.time <= armController.traj.totalTime):
-            armController.traj.realTime = np.append(armController.traj.realTime, data.time)
-            armController.traj.realPos = np.concatenate((armController.traj.realPos, [data.qpos]), axis=0)
-            armController.traj.estPos = np.concatenate((armController.traj.estPos, [armController.xhat]), axis=0)
-            armController.traj.realVel = np.concatenate((armController.traj.realVel, [data.qvel]), axis=0)
-            armController.traj.estVel = np.concatenate((armController.traj.estVel, [armController.vhat]), axis=0)
-            armController.traj.realAcc = np.concatenate((armController.traj.realAcc, [data.qacc]), axis=0)
-            armController.traj.realTorque = np.concatenate((armController.traj.realTorque, [data.qfrc_applied]), axis=0)
-
+        # if(data.time <= armController.traj.totalTime):
+        armController.traj.realTime = np.append(armController.traj.realTime, data.time)
+        armController.traj.realPos = np.concatenate((armController.traj.realPos, [data.qpos]), axis=0)
+        armController.traj.estPos = np.concatenate((armController.traj.estPos, [armController.xhat]), axis=0)
+        armController.traj.realVel = np.concatenate((armController.traj.realVel, [data.qvel]), axis=0)
+        armController.traj.estVel = np.concatenate((armController.traj.estVel, [armController.vhat]), axis=0)
+        armController.traj.realAcc = np.concatenate((armController.traj.realAcc, [data.qacc]), axis=0)
+        armController.traj.realTorque = np.concatenate((armController.traj.realTorque, [data.qfrc_applied]), axis=0)
+        armController.traj.endEffPos = np.concatenate((armController.traj.endEffPos, [data.site_xpos[site_id]]), axis = 0)
+            
 #####################   
 # SIMULATION AND UI #
 #####################
 
-def keyboard(window, key, scancode, act, mods):
+def keyboard(window, key, scancode, act, mods): 
     if act == glfw.PRESS and key == glfw.KEY_BACKSPACE:
         mj.mj_resetData(model, data)
         mj.mj_forward(model, data)
